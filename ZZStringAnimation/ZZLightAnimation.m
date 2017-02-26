@@ -56,10 +56,8 @@
     
     _animationView.frame = [self adjustStringFrameWithView:view viewString:viewText stringBounds:stringBounds];
     [view addSubview:_animationView];
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithOvalInRect:_animationView.bounds];
     [maskPath fill];
-    ctx
     
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = _animationView.bounds;
