@@ -7,11 +7,14 @@
 //
 
 #import "ZZLightAnimation.h"
-#import <objc/objc-runtime.h>
+#import "UIView+ZZStringAnimation.h"
 
 @interface ZZLightAnimation ()
 
 @property (nonatomic,strong) UIView *animationView;
+
+@property (nonatomic,strong) NSTimer *timer;
+
 
 @end
 
@@ -21,10 +24,13 @@
 {
     self = [super init];
     if (self) {
+        
         _animationView = [UIView new];
-        _color = [UIColor redColor];
-        _alpha = 0.4;
-        _duration = 1;
+        _color = [UIColor whiteColor];
+        _alpha = 0.7;
+        _duration = 1.5;
+        _animationViewWidth = 14;
+        _repeat = YES;
         
         _animationView.backgroundColor = _color;
         _animationView.alpha = _alpha;
@@ -33,28 +39,39 @@
     return self;
 }
 
+- (void)fireTimerKeepAlive{
+    if (_timer) return;
+    SEL selector = @selector(zz_startAnimationWithView:);
+    NSMethodSignature *signature = [self methodSignatureForSelector:selector];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+    _timer = [NSTimer timerWithTimeInterval:_duration invocation:invocation repeats:_repeat];
+    
+    [_timer fire];
+}
+- (void)stopTimerResignAlive{
+    
+    if (_timer == nil) return;
+    [_timer invalidate];
+    _timer = nil;
+}
+- (void)setRepeat:(BOOL)repeat{
+    _repeat = repeat;
+    [self stopTimerResignAlive];
+    [self fireTimerKeepAlive];
+}
+
 - (void)zz_startAnimationWithView:(UIView *)view{
     
-    NSString *viewText;
-    UIFont *font;
-    CGRect stringBounds;
-    
-    if ([view respondsToSelector:@selector(text)]) {
-        viewText = ((NSString *(*)(id, SEL))(void *) objc_msgSend)(view,@selector(text));
-    }else{
+    NSString *viewText = [view viewText];
+    if (viewText == nil) {
         NSLog(@"not suport this view");
         return;
     }
+    CGRect stringBounds = [view viewTextBounds];
+    CGRect stringFrame = [view viewTextFrame];
     
-    if ([view respondsToSelector:@selector(font)]) {
-        font = ((UIFont *(*)(id, SEL))(void *) objc_msgSend)(view,@selector(font));
-    }else{
-        font = [UIFont systemFontOfSize:[UIFont systemFontSize]];
-    }
-    NSDictionary *attr = @{NSFontAttributeName:font};
-    stringBounds = [viewText boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil];
+    _animationView.frame = CGRectMake(0, stringFrame.origin.y, _animationViewWidth, stringFrame.size.height);
     
-    _animationView.frame = [self adjustStringFrameWithView:view viewString:viewText stringBounds:stringBounds];
     [view addSubview:_animationView];
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithOvalInRect:_animationView.bounds];
     [maskPath fill];
@@ -64,6 +81,9 @@
     maskLayer.path = maskPath.CGPath;
     _animationView.layer.mask = maskLayer;
     
+    if (_repeat) {
+        [self fireTimerKeepAlive];
+    }
     [UIView animateWithDuration:_duration animations:^{
         _animationView.frame = CGRectMake(stringBounds.size.width - _animationView.frame.size.width, _animationView.frame.origin.y, _animationView.frame.size.width, _animationView.frame.size.height);
     } completion:^(BOOL finished) {
@@ -72,39 +92,5 @@
     
 }
 
-- (CGRect)adjustStringFrameWithView:(UIView *)view viewString:(NSString *)viewText stringBounds:(CGRect)stringBounds{
-    
-    NSTextAlignment stringAlignment;
-    
-    if ([view respondsToSelector:@selector(textAlignment)]) {
-        stringAlignment = ((NSTextAlignment (*)(id, SEL))(void *) objc_msgSend)(view,@selector(textAlignment));
-    }else{
-        stringAlignment = NSTextAlignmentLeft;
-    }
-    
-    CGFloat stringX = 0;
-    CGFloat stringY = 0;
-    CGFloat stringW = 15;
-    CGFloat stringH = stringBounds.size.height + 10;
-
-    switch (stringAlignment) {
-        case NSTextAlignmentNatural:
-        case NSTextAlignmentLeft:
-        case NSTextAlignmentJustified:
-            stringX = 0;
-            stringY = (view.frame.size.height - stringH)*0.5;
-            break;
-        case NSTextAlignmentCenter:
-            stringX = (view.frame.size.width - stringW)*0.5;
-            stringY = (view.frame.size.height - stringH)*0.5;
-            break;
-        case NSTextAlignmentRight:
-            stringX = view.frame.size.width - stringW;
-            stringY = (view.frame.size.height - stringH)*0.5;
-            break;
-    }
-    
-    return CGRectMake(stringX, stringY, stringW, stringH);
-}
 
 @end
