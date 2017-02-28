@@ -8,29 +8,29 @@
 
 #import "ZZLightAnimation.h"
 #import "UIView+ZZStringAnimation.h"
+#import <CoreGraphics/CoreGraphics.h>
+
 
 @interface ZZLightAnimation ()
 
+@property (nonatomic,weak  ) UIView *view;
+
 @property (nonatomic,strong) UIView *animationView;
-
-@property (nonatomic,strong) NSTimer *timer;
-
 
 @end
 
 @implementation ZZLightAnimation
-
+@synthesize view = _view;
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         
         _animationView = [UIView new];
+        _angle = 0.0;
         _color = [UIColor whiteColor];
         _alpha = 0.7;
-        _duration = 1.5;
-        _animationViewWidth = 14;
-        _repeat = YES;
+        _animationViewWidth = 10;
         
         _animationView.backgroundColor = _color;
         _animationView.alpha = _alpha;
@@ -39,40 +39,22 @@
     return self;
 }
 
-- (void)fireTimerKeepAlive{
-    if (_timer) return;
-    SEL selector = @selector(zz_startAnimationWithView:);
-    NSMethodSignature *signature = [self methodSignatureForSelector:selector];
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
-    _timer = [NSTimer timerWithTimeInterval:_duration invocation:invocation repeats:_repeat];
+- (void)zz_startAnimationWithView:(UIView *)pView{
     
-    [_timer fire];
-}
-- (void)stopTimerResignAlive{
-    
-    if (_timer == nil) return;
-    [_timer invalidate];
-    _timer = nil;
-}
-- (void)setRepeat:(BOOL)repeat{
-    _repeat = repeat;
-    [self stopTimerResignAlive];
+    _view = pView;
+
     [self fireTimerKeepAlive];
 }
 
-- (void)zz_startAnimationWithView:(UIView *)view{
-    
-    NSString *viewText = [view viewText];
+- (void)onTimer{
+    NSString *viewText = [self.view zz_viewText];
     if (viewText == nil) {
-        NSLog(@"not suport this view");
         return;
     }
-    CGRect stringBounds = [view viewTextBounds];
-    CGRect stringFrame = [view viewTextFrame];
-    
+    CGRect stringFrame = [self.view zz_viewTextFrame];
     _animationView.frame = CGRectMake(0, stringFrame.origin.y, _animationViewWidth, stringFrame.size.height);
     
-    [view addSubview:_animationView];
+    [self.view addSubview:_animationView];
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithOvalInRect:_animationView.bounds];
     [maskPath fill];
     
@@ -80,17 +62,27 @@
     maskLayer.frame = _animationView.bounds;
     maskLayer.path = maskPath.CGPath;
     _animationView.layer.mask = maskLayer;
+    //        CGAffineTransform tran = CGAffineTransformMakeRotation(_angle);
+    //        _animationView.transform = tran;
     
-    if (_repeat) {
-        [self fireTimerKeepAlive];
-    }
-    [UIView animateWithDuration:_duration animations:^{
-        _animationView.frame = CGRectMake(stringBounds.size.width - _animationView.frame.size.width, _animationView.frame.origin.y, _animationView.frame.size.width, _animationView.frame.size.height);
+    [UIView animateWithDuration:self.duration animations:^{
+        CGRect rect = _animationView.frame;
+        rect.origin.x = stringFrame.size.width - _animationView.frame.size.width;
+        _animationView.frame = rect;
     } completion:^(BOOL finished) {
         [_animationView removeFromSuperview];
+        if (!self.repeat) {
+            [self stopTimerResignAlive];
+        }
     }];
-    
 }
 
+- (void)setAngle:(CGFloat)angle{
+    _angle = angle;
+}
 
+- (void)setColor:(UIColor *)color{
+    _color = color;
+    _animationView.backgroundColor = color;
+}
 @end

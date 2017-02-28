@@ -11,11 +11,9 @@
 
 @interface ZZLightAnimation : ZZAnimationSubject
 
+@property (nonatomic,assign) CGFloat angle;
+
 @property (nonatomic,assign) CGFloat alpha;
-
-@property (nonatomic,assign) CGFloat duration;
-
-@property (nonatomic,assign) BOOL repeat; // 0 is infinity repeat，default 1，
 
 @property (nonatomic,assign) CGFloat animationViewWidth;
 

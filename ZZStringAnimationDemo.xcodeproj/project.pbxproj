@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A0B74071E65824A00678DDA /* ZZMicroscopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B74061E65824A00678DDA /* ZZMicroscopeView.m */; };
+		3A0B740A1E658E9B00678DDA /* ZZMicroscopeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B74091E658E9B00678DDA /* ZZMicroscopeAnimation.m */; };
+		3A0B740D1E65959500678DDA /* UIColor+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */; };
 		3A6A95AC1E62DC2200C2F994 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95AB1E62DC2200C2F994 /* main.m */; };
 		3A6A95AF1E62DC2200C2F994 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95AE1E62DC2200C2F994 /* AppDelegate.m */; };
 		3A6A95B21E62DC2200C2F994 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95B11E62DC2200C2F994 /* ViewController.m */; };
@@ -22,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A0B74051E65824A00678DDA /* ZZMicroscopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMicroscopeView.h; sourceTree = "<group>"; };
+		3A0B74061E65824A00678DDA /* ZZMicroscopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMicroscopeView.m; sourceTree = "<group>"; };
+		3A0B74081E658E9B00678DDA /* ZZMicroscopeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZMicroscopeAnimation.h; sourceTree = "<group>"; };
+		3A0B74091E658E9B00678DDA /* ZZMicroscopeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZMicroscopeAnimation.m; sourceTree = "<group>"; };
+		3A0B740B1E65959500678DDA /* UIColor+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZZStringAnimation.h"; sourceTree = "<group>"; };
+		3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZZStringAnimation.m"; sourceTree = "<group>"; };
 		3A6A95A71E62DC2200C2F994 /* ZZStringAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZStringAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6A95AB1E62DC2200C2F994 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A6A95AD1E62DC2200C2F994 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -103,10 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				3A6A95CB1E62DC9B00C2F994 /* ZZStringAnimation.h */,
+				3A0B74051E65824A00678DDA /* ZZMicroscopeView.h */,
+				3A0B74061E65824A00678DDA /* ZZMicroscopeView.m */,
 				3A6A95C41E62DC4500C2F994 /* ZZAnimationSubject.h */,
 				3A6A95C51E62DC4500C2F994 /* ZZAnimationSubject.m */,
 				3A6A95C61E62DC4500C2F994 /* ZZLightAnimation.h */,
 				3A6A95C71E62DC4500C2F994 /* ZZLightAnimation.m */,
+				3A0B74081E658E9B00678DDA /* ZZMicroscopeAnimation.h */,
+				3A0B74091E658E9B00678DDA /* ZZMicroscopeAnimation.m */,
 				3A6A95CC1E62FC3F00C2F994 /* UIView+ZZStringAnimation.h */,
 				3A6A95CD1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m */,
 				3A6A95C21E62DC4500C2F994 /* UILabel+ZZStringAnimation.h */,
@@ -115,6 +128,8 @@
 				3A6A95D11E6307E700C2F994 /* UITextField+ZZStringAnimation.m */,
 				3A6A95D31E6307F600C2F994 /* UITextView+ZZStringAnimation.h */,
 				3A6A95D41E6307F600C2F994 /* UITextView+ZZStringAnimation.m */,
+				3A0B740B1E65959500678DDA /* UIColor+ZZStringAnimation.h */,
+				3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */,
 			);
 			path = ZZStringAnimation;
 			sourceTree = "<group>";
@@ -196,9 +211,12 @@
 				3A6A95C91E62DC4500C2F994 /* ZZAnimationSubject.m in Sources */,
 				3A6A95AF1E62DC2200C2F994 /* AppDelegate.m in Sources */,
 				3A6A95C81E62DC4500C2F994 /* UILabel+ZZStringAnimation.m in Sources */,
+				3A0B740D1E65959500678DDA /* UIColor+ZZStringAnimation.m in Sources */,
 				3A6A95AC1E62DC2200C2F994 /* main.m in Sources */,
+				3A0B740A1E658E9B00678DDA /* ZZMicroscopeAnimation.m in Sources */,
 				3A6A95D51E6307F600C2F994 /* UITextView+ZZStringAnimation.m in Sources */,
 				3A6A95CA1E62DC4500C2F994 /* ZZLightAnimation.m in Sources */,
+				3A0B74071E65824A00678DDA /* ZZMicroscopeView.m in Sources */,
 				3A6A95D21E6307E700C2F994 /* UITextField+ZZStringAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +374,7 @@
 				3A6A95C01E62DC2200C2F994 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

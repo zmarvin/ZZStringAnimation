@@ -10,6 +10,18 @@
 
 @interface ZZAnimationSubject : NSObject
 
+@property (nonatomic,weak  ,readonly) UIView *view;
+
+@property (nonatomic,assign) CGFloat duration;
+
+@property (nonatomic,assign) CGFloat repeatTimeInterval;
+
+@property (nonatomic,assign) BOOL repeat;
+
 - (void)zz_startAnimationWithView:(UIView *)view;
+
+- (void)fireTimerKeepAlive;
+
+- (void)stopTimerResignAlive;
 
 @end

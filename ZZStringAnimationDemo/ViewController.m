@@ -8,11 +8,12 @@
 
 #import "ViewController.h"
 #import "ZZStringAnimation.h"
+#import "ZZMicroscopeView.h"
 
 @interface ViewController ()
 
 @property (nonatomic,strong) UILabel *label;
-@property (nonatomic,strong) UITextField *textField;
+@property (nonatomic,strong) UILabel *textField;
 
 @end
 
@@ -34,9 +35,9 @@
     [self.view addSubview:label];
     _label = label;
     
-    UITextField *textF = [UITextField new];
-    textF.frame = CGRectMake(30, 200, 300, 100);
-    textF.text = @"dsflajdflsdajfl;djslfjsdafl,fdsafljsdlafjdslfjsldfjdsalfjslkf";
+    UILabel *textF = [UILabel new];
+    textF.frame = CGRectMake(50, 200, 300, 100);
+    textF.text = @"dsflajdflsdajfl;djslfjsdaf";
     textF.font = [UIFont systemFontOfSize:20];
     [self.view addSubview:textF];
     _textField = textF;
@@ -47,9 +48,13 @@
     
     ZZLightAnimation *lightAnimation = [[ZZLightAnimation alloc] init];
     lightAnimation.duration = 2;
+    lightAnimation.angle = M_PI_4*0.5;
     [_label zz_startAnimation:lightAnimation];
     
-    ZZLightAnimation *lightAnimation2 = [[ZZLightAnimation alloc] init];
+    ZZMicroscopeAnimation *lightAnimation2 = [[ZZMicroscopeAnimation alloc] init];
+    lightAnimation2.duration = 5;
+    lightAnimation2.lineWidth = 2;
+    lightAnimation2.lineColor = [UIColor redColor];
     [_textField zz_startAnimation:lightAnimation2];
 
 }

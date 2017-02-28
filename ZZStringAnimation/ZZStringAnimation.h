@@ -14,5 +14,6 @@
 #import "UITextView+ZZStringAnimation.h"
 
 #import "ZZLightAnimation.h"
+#import "ZZMicroscopeAnimation.h"
 
 #endif /* ZZStringAnimation_h */
