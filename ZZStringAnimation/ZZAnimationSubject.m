@@ -9,10 +9,10 @@
 #import "ZZAnimationSubject.h"
 
 static NSMutableArray * ZZAnimations() {
+    
     static NSMutableArray *_ZZAnimations = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
         _ZZAnimations = [NSMutableArray arrayWithCapacity:1];
     });
     
@@ -25,6 +25,7 @@ static void addToCachePool(ZZAnimationSubject *ani){
     }
     [ZZAnimations() addObject:ani];
 }
+
 static void removeFromCachePool(ZZAnimationSubject *ani){
     if ([ZZAnimations() containsObject:ani]) {
         [ZZAnimations() removeObject:ani];
@@ -33,7 +34,6 @@ static void removeFromCachePool(ZZAnimationSubject *ani){
 
 @interface ZZAnimationSubject ()
 @property (nonatomic,strong) NSTimer *timer;
-
 @end
 
 @implementation ZZAnimationSubject
@@ -52,7 +52,6 @@ static void removeFromCachePool(ZZAnimationSubject *ani){
 }
 
 - (void)onTimer{
-    NSCAssert(NO, @"This method must be overridden by subclasses");
 }
 
 - (void)fireTimerKeepAlive{
