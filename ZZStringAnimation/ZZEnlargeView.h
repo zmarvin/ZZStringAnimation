@@ -2,7 +2,7 @@
 //  ZZEnlargeView.h
 //  ZZStringAnimationDemo
 //
-//  Created by zz on 2017/3/2.
+//  Created by zmarvin on 2017/3/2.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @interface ZZEnlargeView : UIView
 
-+ (instancetype)enlargeViewWithView:(UIView *)view;
++ (instancetype)enlargeView:(UIView *)targetView;
 
 @property (nonatomic,assign) CGFloat enlarge;
 

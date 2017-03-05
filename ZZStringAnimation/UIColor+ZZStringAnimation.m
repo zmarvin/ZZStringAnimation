@@ -2,13 +2,14 @@
 //  UIColor+ZZStringAnimation.m
 //  ZZStringAnimationDemo
 //
-//  Created by zz on 2017/2/28.
+//  Created by zmarvin on 2017/2/28.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
 #import "UIColor+ZZStringAnimation.h"
 
 @implementation UIColor (ZZStringAnimation)
+
 - (NSMutableArray *)zz_changeUIColorToRGB
 {
     NSMutableArray *RGBStrValueArr = [[NSMutableArray alloc] init];
@@ -44,4 +45,5 @@
     CGFloat b = [[RGBArr objectAtIndex:3] floatValue] * 255;
     return b;
 }
+
 @end

@@ -2,7 +2,7 @@
 //  ZZEnlargeAnimation.m
 //  ZZStringAnimationDemo
 //
-//  Created by zz on 2017/2/28.
+//  Created by zmarvin on 2017/2/28.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
@@ -12,14 +12,14 @@
 
 @interface ZZEnlargeAnimation ()
 
-@property (nonatomic,weak  ) UIView *view;
+@property (nonatomic,weak  ) UIView *targetView;
 
 @property (nonatomic,strong) ZZEnlargeView *enlargeView;
 
 @end
 
 @implementation ZZEnlargeAnimation
-@synthesize view = _view;
+@synthesize targetView = _targetView;
 - (instancetype)init
 {
     self = [super init];
@@ -29,33 +29,44 @@
     return self;
 }
 
-- (void)zz_startAnimationWithView:(UIView *)view{
-    _view = view;
+- (void)zz_startAnimationWithView:(UIView *)targetView{
     
-    _enlargeView = [ZZEnlargeView enlargeViewWithView:self.view];
-    _enlargeView.enlarge = _enlargeMultiple;
-    _enlargeView.lineWidth = _lineWidth;
-    _enlargeView.lineColor = _lineColor;
-    [self.view addSubview:_enlargeView];
+    _targetView = targetView;
+    
+    ZZEnlargeView *enlargeView = [ZZEnlargeView enlargeView:targetView];
+    enlargeView.enlarge = _enlargeMultiple;
+    enlargeView.lineWidth = _lineWidth;
+    enlargeView.lineColor = _lineColor;
+    [self.targetView addSubview:enlargeView];
+    _enlargeView = enlargeView;
     
     [self fireTimerKeepAlive];
 }
 
 - (void)onTimer{
     
-    NSString *viewText = [self.view zz_viewText];
-    if (viewText == nil) return;
-    
     if (self.enlargeView.superview == nil) {
-        [self.view addSubview:_enlargeView];
+        [self.targetView addSubview:_enlargeView];
     }
-    
+    CGRect enlargeFrame = _enlargeView.frame;
+    enlargeFrame.origin.x = -_enlargeView.frame.size.height * 0.5;
+    enlargeFrame.size.width = _enlargeView.frame.size.width + 5;
+    _enlargeView.frame = enlargeFrame;
+
     __weak typeof(self) wSelf = self;
-    [_enlargeView startAnimationWithDuration:self.duration completion:^(BOOL finished) {
+    [_enlargeView startAnimationWithDuration:wSelf.duration completion:^(BOOL finished) {
         [wSelf.enlargeView removeFromSuperview];
         if (!wSelf.repeat) {
             [wSelf stopTimerResignAlive];
         }
+    }];
+    
+    [UIView animateWithDuration:self.duration animations:^{
+        
+        CGRect enlargeFrame = _enlargeView.frame;
+        enlargeFrame.origin.x = wSelf.targetView.zz_viewTextBounds.size.width - enlargeFrame.size.width + _enlargeView.frame.size.height*0.5;
+        _enlargeView.frame = enlargeFrame;
+    
     }];
     
 }

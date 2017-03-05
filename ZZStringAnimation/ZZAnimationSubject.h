@@ -2,7 +2,7 @@
 //  ZZStringSubject.h
 //  ZZStringAnimation
 //
-//  Created by zz on 2017/2/26.
+//  Created by zmarvin on 2017/2/26.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @interface ZZAnimationSubject : NSObject
 
-@property (nonatomic,weak  ,readonly) UIView *view;
+@property (nonatomic,weak  ,readonly) UIView *targetView;
 
 @property (nonatomic,assign) CGFloat duration;
 
@@ -18,7 +18,7 @@
 
 @property (nonatomic,assign) BOOL repeat;
 
-- (void)zz_startAnimationWithView:(UIView *)view;
+- (void)zz_startAnimationWithView:(UIView *)targetView;
 
 - (void)fireTimerKeepAlive;
 

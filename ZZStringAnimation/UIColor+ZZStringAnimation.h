@@ -2,7 +2,7 @@
 //  UIColor+ZZStringAnimation.h
 //  ZZStringAnimationDemo
 //
-//  Created by zz on 2017/2/28.
+//  Created by zmarvin on 2017/2/28.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 

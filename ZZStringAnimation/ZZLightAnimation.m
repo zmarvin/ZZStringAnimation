@@ -2,7 +2,7 @@
 //  ZZLightAnimation.m
 //  ZZStringAnimation
 //
-//  Created by zz on 2017/2/26.
+//  Created by zmarvin on 2017/2/26.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
@@ -12,14 +12,14 @@
 
 @interface ZZLightAnimation ()<CAAnimationDelegate>
 
-@property (nonatomic,weak  ) UIView *view;
+@property (nonatomic,weak  ) UIView *targetView;
 
 @property (nonatomic,strong) UIView *animationView;
 
 @end
 
 @implementation ZZLightAnimation
-@synthesize view = _view;
+@synthesize targetView = _targetView;
 - (instancetype)init
 {
     self = [super init];
@@ -38,18 +38,18 @@
     return self;
 }
 
-- (void)zz_startAnimationWithView:(UIView *)pView{
+- (void)zz_startAnimationWithView:(UIView *)targetView{
     
-    _view = pView;
+    _targetView = targetView;
     
-    NSString *viewText = [self.view zz_viewText];
+    NSString *viewText = [self.targetView zz_viewText];
     if (viewText == nil) {
         return;
     }
-    CGRect stringFrame = [self.view zz_viewTextFrame];
+    CGRect stringFrame = [self.targetView zz_viewTextFrame];
     _animationView.frame = CGRectMake(0, stringFrame.origin.y, _animationViewWidth, stringFrame.size.height);
     
-    [self.view addSubview:_animationView];
+    [self.targetView addSubview:_animationView];
     
     UIGraphicsBeginImageContextWithOptions(_animationView.frame.size, NO, 0.0);
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithOvalInRect:_animationView.bounds];
@@ -74,8 +74,8 @@
                                    [NSNumber numberWithFloat:0.7],
                                      [NSNumber numberWithFloat:1.0],
          nil];
-        gradientLayer.startPoint = CGPointMake(0, 0);
-        gradientLayer.endPoint = CGPointMake(1,1);
+        gradientLayer.startPoint = CGPointMake(0, 0.5);
+        gradientLayer.endPoint = CGPointMake(1, 0.5);
         gradientLayer.frame = _animationView.bounds;
         [_animationView.layer addSublayer:gradientLayer];
     

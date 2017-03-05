@@ -10,7 +10,7 @@
 		3A0B740A1E658E9B00678DDA /* ZZEnlargeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B74091E658E9B00678DDA /* ZZEnlargeAnimation.m */; };
 		3A0B740D1E65959500678DDA /* UIColor+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */; };
 		3A47668F1E683B4B00EEE4D9 /* ZZEnlargeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */; };
-		3A4766931E693E6D00EEE4D9 /* ZZPathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4766921E693E6D00EEE4D9 /* ZZPathAnimation.m */; };
+		3A4766931E693E6D00EEE4D9 /* ZZDrawAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4766921E693E6D00EEE4D9 /* ZZDrawAnimation.m */; };
 		3A6A95AC1E62DC2200C2F994 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95AB1E62DC2200C2F994 /* main.m */; };
 		3A6A95AF1E62DC2200C2F994 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95AE1E62DC2200C2F994 /* AppDelegate.m */; };
 		3A6A95B21E62DC2200C2F994 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95B11E62DC2200C2F994 /* ViewController.m */; };
@@ -25,6 +25,8 @@
 		3A6A95D51E6307F600C2F994 /* UITextView+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95D41E6307F600C2F994 /* UITextView+ZZStringAnimation.m */; };
 		3AD75E961E6AAF6D00C5C0D7 /* ZZWaveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */; };
 		3AD75E991E6ADF6300C5C0D7 /* ZZAnimationDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */; };
+		3AD75E9C1E6C0D0400C5C0D7 /* ZZPathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */; };
+		3AD75E9F1E6C282600C5C0D7 /* ZZArcStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,8 @@
 		3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZZStringAnimation.m"; sourceTree = "<group>"; };
 		3A47668D1E683B4B00EEE4D9 /* ZZEnlargeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZEnlargeView.h; sourceTree = "<group>"; };
 		3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZEnlargeView.m; sourceTree = "<group>"; };
-		3A4766911E693E6D00EEE4D9 /* ZZPathAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPathAnimation.h; sourceTree = "<group>"; };
-		3A4766921E693E6D00EEE4D9 /* ZZPathAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPathAnimation.m; sourceTree = "<group>"; };
+		3A4766911E693E6D00EEE4D9 /* ZZDrawAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZDrawAnimation.h; sourceTree = "<group>"; };
+		3A4766921E693E6D00EEE4D9 /* ZZDrawAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZDrawAnimation.m; sourceTree = "<group>"; };
 		3A6A95A71E62DC2200C2F994 /* ZZStringAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZStringAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A6A95AB1E62DC2200C2F994 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A6A95AD1E62DC2200C2F994 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +65,10 @@
 		3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZWaveAnimation.m; sourceTree = "<group>"; };
 		3AD75E971E6ADF6300C5C0D7 /* ZZAnimationDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAnimationDisposable.h; sourceTree = "<group>"; };
 		3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAnimationDisposable.m; sourceTree = "<group>"; };
+		3AD75E9A1E6C0D0400C5C0D7 /* ZZPathAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPathAnimation.h; sourceTree = "<group>"; };
+		3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPathAnimation.m; sourceTree = "<group>"; };
+		3AD75E9D1E6C282600C5C0D7 /* ZZArcStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcStringView.h; sourceTree = "<group>"; };
+		3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcStringView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,17 +126,21 @@
 		3A6A95C11E62DC4500C2F994 /* ZZStringAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				3A6A95CB1E62DC9B00C2F994 /* ZZStringAnimation.h */,
+				3AD75E9D1E6C282600C5C0D7 /* ZZArcStringView.h */,
+				3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */,
 				3A47668D1E683B4B00EEE4D9 /* ZZEnlargeView.h */,
 				3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */,
-				3A6A95CB1E62DC9B00C2F994 /* ZZStringAnimation.h */,
 				3A6A95C41E62DC4500C2F994 /* ZZAnimationSubject.h */,
 				3A6A95C51E62DC4500C2F994 /* ZZAnimationSubject.m */,
 				3A6A95C61E62DC4500C2F994 /* ZZLightAnimation.h */,
 				3A6A95C71E62DC4500C2F994 /* ZZLightAnimation.m */,
 				3A0B74081E658E9B00678DDA /* ZZEnlargeAnimation.h */,
 				3A0B74091E658E9B00678DDA /* ZZEnlargeAnimation.m */,
-				3A4766911E693E6D00EEE4D9 /* ZZPathAnimation.h */,
-				3A4766921E693E6D00EEE4D9 /* ZZPathAnimation.m */,
+				3A4766911E693E6D00EEE4D9 /* ZZDrawAnimation.h */,
+				3A4766921E693E6D00EEE4D9 /* ZZDrawAnimation.m */,
+				3AD75E9A1E6C0D0400C5C0D7 /* ZZPathAnimation.h */,
+				3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */,
 				3AD75E941E6AAF6D00C5C0D7 /* ZZWaveAnimation.h */,
 				3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */,
 				3AD75E971E6ADF6300C5C0D7 /* ZZAnimationDisposable.h */,
@@ -227,13 +237,15 @@
 				3A6A95AF1E62DC2200C2F994 /* AppDelegate.m in Sources */,
 				3A6A95C81E62DC4500C2F994 /* UILabel+ZZStringAnimation.m in Sources */,
 				3A0B740D1E65959500678DDA /* UIColor+ZZStringAnimation.m in Sources */,
-				3A4766931E693E6D00EEE4D9 /* ZZPathAnimation.m in Sources */,
+				3A4766931E693E6D00EEE4D9 /* ZZDrawAnimation.m in Sources */,
 				3A6A95AC1E62DC2200C2F994 /* main.m in Sources */,
 				3A0B740A1E658E9B00678DDA /* ZZEnlargeAnimation.m in Sources */,
+				3AD75E9F1E6C282600C5C0D7 /* ZZArcStringView.m in Sources */,
 				3AD75E991E6ADF6300C5C0D7 /* ZZAnimationDisposable.m in Sources */,
 				3A6A95D51E6307F600C2F994 /* UITextView+ZZStringAnimation.m in Sources */,
 				3AD75E961E6AAF6D00C5C0D7 /* ZZWaveAnimation.m in Sources */,
 				3A6A95CA1E62DC4500C2F994 /* ZZLightAnimation.m in Sources */,
+				3AD75E9C1E6C0D0400C5C0D7 /* ZZPathAnimation.m in Sources */,
 				3A6A95D21E6307E700C2F994 /* UITextField+ZZStringAnimation.m in Sources */,
 				3A47668F1E683B4B00EEE4D9 /* ZZEnlargeView.m in Sources */,
 			);

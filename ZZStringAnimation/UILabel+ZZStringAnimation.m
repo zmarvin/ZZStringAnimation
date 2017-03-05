@@ -2,7 +2,7 @@
 //  NSString+ZZStringAnimation.m
 //  ZZStringAnimation
 //
-//  Created by zz on 2017/2/26.
+//  Created by zmarvin on 2017/2/26.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
