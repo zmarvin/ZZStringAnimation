@@ -12,7 +12,9 @@
 
 @property (nonatomic,weak  ,readonly) UIView *targetView;
 
-@property (nonatomic,assign) CGFloat duration;
+@property (nonatomic,assign) NSTimeInterval duration;
+
+@property (nonatomic,assign) NSTimeInterval delay;
 
 @property (nonatomic,assign) CGFloat repeatTimeInterval;
 

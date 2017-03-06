@@ -14,11 +14,6 @@
 
 @property (nonatomic,assign) CGFloat enlarge;
 
-@property (nonatomic,assign) CGFloat lineWidth;
-
-@property (nonatomic,strong) UIColor *lineColor;
-
-- (void)startAnimationWithDuration:(CGFloat)duration completion:(void (^)(BOOL finished))completion;
-
+- (void)startAnimationWithDuration:(CGFloat)duration;
 
 @end

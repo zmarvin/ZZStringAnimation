@@ -10,7 +10,7 @@
 #import "UIView+ZZStringAnimation.h"
 #import "ZZEnlargeView.h"
 
-@interface ZZEnlargeAnimation ()
+@interface ZZEnlargeAnimation ()<CAAnimationDelegate>
 
 @property (nonatomic,weak  ) UIView *targetView;
 
@@ -35,8 +35,6 @@
     
     ZZEnlargeView *enlargeView = [ZZEnlargeView enlargeView:targetView];
     enlargeView.enlarge = _enlargeMultiple;
-    enlargeView.lineWidth = _lineWidth;
-    enlargeView.lineColor = _lineColor;
     [self.targetView addSubview:enlargeView];
     _enlargeView = enlargeView;
     
@@ -53,20 +51,18 @@
     enlargeFrame.size.width = _enlargeView.frame.size.width + 5;
     _enlargeView.frame = enlargeFrame;
 
-    __weak typeof(self) wSelf = self;
-    [_enlargeView startAnimationWithDuration:wSelf.duration completion:^(BOOL finished) {
-        [wSelf.enlargeView removeFromSuperview];
-        if (!wSelf.repeat) {
-            [wSelf stopTimerResignAlive];
+    [_enlargeView startAnimationWithDuration:self.duration];
+    
+    [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        CGRect endframe = _enlargeView.frame;
+        endframe.origin.x = self.targetView.zz_viewTextBounds.size.width - endframe.size.width + _enlargeView.frame.size.height*0.5;
+        _enlargeView.frame = endframe;
+    } completion:^(BOOL finished) {
+        [self.enlargeView.layer removeAllAnimations];
+        [self.enlargeView removeFromSuperview];
+        if (!self.repeat) {
+            [self stopTimerResignAlive];
         }
-    }];
-    
-    [UIView animateWithDuration:self.duration animations:^{
-        
-        CGRect enlargeFrame = _enlargeView.frame;
-        enlargeFrame.origin.x = wSelf.targetView.zz_viewTextBounds.size.width - enlargeFrame.size.width + _enlargeView.frame.size.height*0.5;
-        _enlargeView.frame = enlargeFrame;
-    
     }];
     
 }
@@ -75,16 +71,5 @@
     _enlargeMultiple = enlargeMultiple;
     _enlargeView.enlarge = _enlargeMultiple;
 }
-
-- (void)setLineWidth:(CGFloat)lineWidth{
-    _lineWidth = lineWidth;
-    _enlargeView.lineWidth = lineWidth;
-}
-- (void)setLineColor:(UIColor *)lineColor{
-    _lineColor = lineColor;
-    _enlargeView.lineColor = lineColor;
-}
-
-
 
 @end

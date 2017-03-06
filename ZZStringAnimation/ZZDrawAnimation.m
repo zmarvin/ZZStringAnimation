@@ -34,16 +34,17 @@
     _targetView = targetView;
     
     UIBezierPath *path = [self bezierPathWithString:targetView.zz_viewText];
-    _pathLayer.bounds = CGPathGetBoundingBox(path.CGPath);
-    _pathLayer.anchorPoint = CGPointMake(1, 0.5);
-    _pathLayer.position = targetView.layer.position;
+    _pathLayer.bounds = CGPathGetPathBoundingBox(path.CGPath);
+    _pathLayer.frame = [targetView.layer convertRect:targetView.zz_viewTextFrame toLayer:targetView.superview.layer];
+;
+
+    _pathLayer.contentsScale = [UIScreen mainScreen].scale;
     _pathLayer.strokeColor = self.targetView.zz_viewTextColor.CGColor;
     _pathLayer.geometryFlipped = YES;
     _pathLayer.path = path.CGPath;
     _pathLayer.fillColor = nil;
-    _pathLayer.lineWidth = 1;
     [_targetView.superview.layer addSublayer:_pathLayer];
-
+  
     CABasicAnimation * textAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     textAnimation.duration = self.duration;
     textAnimation.fromValue = [NSNumber numberWithFloat:0];
@@ -67,8 +68,13 @@
     CGMutablePathRef letters = CGPathCreateMutable();
 
     CTFontRef font = (__bridge CTFontRef)(self.targetView.zz_viewTextFont);
+    
     NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
+                           
                            (__bridge id)font, kCTFontAttributeName,
+                           @1,kCTStrokeWidthAttributeName,
+                           (__bridge id)self.targetView.zz_viewTextColor.CGColor,kCTStrokeColorAttributeName,
+                           
                            nil];
     
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:string

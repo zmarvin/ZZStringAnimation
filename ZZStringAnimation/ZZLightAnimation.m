@@ -41,11 +41,12 @@
 - (void)zz_startAnimationWithView:(UIView *)targetView{
     
     _targetView = targetView;
-    
     NSString *viewText = [self.targetView zz_viewText];
     if (viewText == nil) {
         return;
     }
+    self.angle = M_PI_4;
+
     CGRect stringFrame = [self.targetView zz_viewTextFrame];
     _animationView.frame = CGRectMake(0, stringFrame.origin.y, _animationViewWidth, stringFrame.size.height);
     
@@ -60,24 +61,24 @@
     _animationView.layer.mask = maskLayer;
     UIGraphicsEndImageContext();
     
-        CAGradientLayer *gradientLayer = [[CAGradientLayer alloc] init];
-        gradientLayer.colors = [NSArray arrayWithObjects:
-                                (id)[[_color colorWithAlphaComponent:0.2] CGColor],
-                                (id)[[_color colorWithAlphaComponent:1] CGColor],
-                                (id)[[_color colorWithAlphaComponent:1] CGColor],
-                                (id)[[_color colorWithAlphaComponent:0.2] CGColor],
-                                nil];
+    CAGradientLayer *gradientLayer = [[CAGradientLayer alloc] init];
+    gradientLayer.colors = [NSArray arrayWithObjects:
+                            (id)[[_color colorWithAlphaComponent:0.2] CGColor],
+                            (id)[[_color colorWithAlphaComponent:1] CGColor],
+                            (id)[[_color colorWithAlphaComponent:1] CGColor],
+                            (id)[[_color colorWithAlphaComponent:0.2] CGColor],
+                            nil];
     
-        gradientLayer.locations = [NSArray arrayWithObjects:
-                                     [NSNumber numberWithFloat:0.0],
-                                   [NSNumber numberWithFloat:0.3],
-                                   [NSNumber numberWithFloat:0.7],
-                                     [NSNumber numberWithFloat:1.0],
-         nil];
-        gradientLayer.startPoint = CGPointMake(0, 0.5);
-        gradientLayer.endPoint = CGPointMake(1, 0.5);
-        gradientLayer.frame = _animationView.bounds;
-        [_animationView.layer addSublayer:gradientLayer];
+    gradientLayer.locations = [NSArray arrayWithObjects:
+                                 [NSNumber numberWithFloat:0.0],
+                               [NSNumber numberWithFloat:0.3],
+                               [NSNumber numberWithFloat:0.7],
+                                 [NSNumber numberWithFloat:1.0],
+     nil];
+    gradientLayer.startPoint = CGPointMake(0, 0.5);
+    gradientLayer.endPoint = CGPointMake(1, 0.5);
+    gradientLayer.frame = _animationView.bounds;
+    [_animationView.layer addSublayer:gradientLayer];
     
     CGFloat offset = stringFrame.size.width - _animationView.frame.size.width;
     CGPoint toPoint = CGPointMake(0.5*_animationView.frame.size.width+offset, self.animationView.layer.position.y);
@@ -86,13 +87,10 @@
     animation.fromValue = [NSValue valueWithCGPoint:self.animationView.layer.position];
     animation.toValue = [NSValue valueWithCGPoint:toPoint];
     animation.duration = self.duration;
-    if(self.repeat){
-        animation.repeatCount = HUGE_VALF;
-    }else{
-        animation.repeatCount = 0;
-    }
+    animation.repeatCount = self.repeat?HUGE_VALF:0;
     animation.removedOnCompletion = NO;
     animation.delegate = self;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [self.animationView.layer addAnimation:animation forKey:@"position"];
 }
 
@@ -107,7 +105,7 @@
 
 - (void)setAngle:(CGFloat)angle{
     _angle = angle;
-    _animationView.transform = CGAffineTransformRotate(CGAffineTransformIdentity,_angle);
+    _animationView.transform = CGAffineTransformMakeRotation(_angle);
 }
 
 - (void)setColor:(UIColor *)color{

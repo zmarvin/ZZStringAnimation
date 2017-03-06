@@ -17,6 +17,7 @@
 #import "ZZLightAnimation.h"
 #import "ZZEnlargeAnimation.h"
 #import "ZZDrawAnimation.h"
+#import "ZZGradualAnimation.h"
 #import "ZZWaveAnimation.h"
 
 #endif /* ZZStringAnimation_h */

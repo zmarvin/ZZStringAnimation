@@ -84,17 +84,14 @@ static void PrepareGlyphArcInfo(CTLineRef line, CFIndex glyphCount, GlyphArcInfo
 }
 
 - (void)drawRect:(CGRect)rect {
-    // Don't draw if we don't have a font or string
     if (self.font == NULL || self.string == NULL)
         return;
     
-    // Initialize the text matrix to a known value
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetTextMatrix(context, CGAffineTransformIdentity);
     CGContextTranslateCTM(context, 0, self.bounds.size.height);
     CGContextScaleCTM(context, 1.0, -1.0);
     
-    // Draw a white background
     [[UIColor whiteColor] set];
     UIRectFill(rect);
     

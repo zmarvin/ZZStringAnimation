@@ -15,7 +15,9 @@
 @property (nonatomic,strong) UILabel *label;
 @property (nonatomic,strong) UILabel *label2;
 @property (nonatomic,strong) UILabel *label3;
-@property (nonatomic,strong) ZZArcStringView *arcStringView;
+@property (nonatomic,strong) UILabel *label4;
+
+//@property (nonatomic,strong) ZZArcStringView *arcStringView;
 
 @end
 
@@ -35,6 +37,7 @@
     label.frame = CGRectMake(50, 100, 280, 100);
     label.text = @"一缕光light，一缕光light";
     label.font = [UIFont systemFontOfSize:20];
+    label.textColor = [UIColor redColor];
     [self.view addSubview:label];
     _label = label;
     
@@ -47,35 +50,44 @@
     _label2 = label2;
     
     UILabel *label3 = [UILabel new];
-    label3.frame = CGRectMake(50, 300, 280, 100);
-    label3.text = @"现在字体出现，字体出现";
-    label3.font = [UIFont systemFontOfSize:15];
+    label3.frame = CGRectMake(50, 280, 280, 100);
+    label3.text = @"现在字体被写出，字体被写出";
     label3.textColor = [UIColor redColor];
     [self.view addSubview:label3];
     _label3 = label3;
     
-    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
-    arcStringView.frame = CGRectMake(50, 400, 300, 300);
-    arcStringView.radius = 170;
-    [self.view addSubview:arcStringView];
+    UILabel *label4 = [UILabel new];
+    label4.frame = CGRectMake(50, 350, 280, 100);
+    label4.text = @"现在字体逐渐出现，逐渐出现";
+    label4.textColor = [UIColor redColor];
+    [self.view addSubview:label4];
+    _label4 = label4;
+    
+//    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
+//    arcStringView.frame = CGRectMake(50, 400, 300, 200);
+//    arcStringView.radius = 120;
+//    [self.view addSubview:arcStringView];
 }
 
 - (void)click {
     
     ZZLightAnimation *lightAnimation = [ZZLightAnimation new];
     lightAnimation.color = [UIColor whiteColor];
-    lightAnimation.angle = M_PI_4;
     lightAnimation.duration = 1;
     [_label zz_startAnimation:lightAnimation];
     
     ZZEnlargeAnimation *enlargeAnimation = [ZZEnlargeAnimation new];
     enlargeAnimation.duration = 5;
-    enlargeAnimation.enlargeMultiple = 2;
+    enlargeAnimation.enlargeMultiple = 3;
     [_label2 zz_startAnimation:enlargeAnimation];
     
     ZZDrawAnimation *pathAnimation = [ZZDrawAnimation new];
     pathAnimation.duration = 5;
     [_label3 zz_startAnimation:pathAnimation];
+    
+    ZZGradualAnimation *gradualAnimation = [ZZGradualAnimation new];
+    gradualAnimation.duration = 5;
+    [_label4 zz_startAnimation:gradualAnimation];
 
 }
 

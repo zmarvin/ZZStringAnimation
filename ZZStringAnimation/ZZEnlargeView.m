@@ -21,9 +21,6 @@
 @property (nonatomic,assign) CGFloat duration;
 @property (nonatomic,strong) CAShapeLayer *maskLayer;
 
-@property (nonatomic,assign) CGFloat moveSliceDistance;
-@property (nonatomic,assign) CGFloat sliceDistance;
-
 @end
 
 @implementation ZZEnlargeView
@@ -44,19 +41,17 @@
         
         self.backgroundColor = [[NSString stringWithFormat:@"%@",targetView.backgroundColor] isEqualToString:@"UIExtendedGrayColorSpace 0 0"]?[UIColor whiteColor]:targetView.backgroundColor;
         
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
         _maskLayer = [[CAShapeLayer alloc] init];
         _maskLayer.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height);
-        UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)];
-        _maskLayer.path = path.CGPath;
+        _maskLayer.path = [UIBezierPath bezierPathWithOvalInRect:_maskLayer.frame].CGPath;
         self.layer.mask = _maskLayer;
-        UIGraphicsEndImageContext();
         
     }
     return self;
 }
 
 + (instancetype)enlargeView:(UIView *)targetView{
+    
     return [[ZZEnlargeView alloc] initWithView:targetView];
 }
 
@@ -71,27 +66,21 @@
     _link = nil;
 }
 
-- (void)display{
-    CGRect rect = _maskLayer.frame;
-    self.moveSliceDistance += self.sliceDistance;
-    if (self.moveSliceDistance > self.frame.size.width) {
-        return;
-    }
-    rect.origin.x = self.moveSliceDistance;
-    _maskLayer.path = [UIBezierPath bezierPathWithOvalInRect:rect].CGPath;
-}
-
-- (void)startAnimationWithDuration:(CGFloat)duration completion:(void (^)(BOOL finished))completion{
+- (void)startAnimationWithDuration:(CGFloat)duration{
     
     self.duration = duration;
-    self.sliceDistance = self.frame.size.width/(duration*60);
-    [self startDisplay];
+        
+    CABasicAnimation * maskLayerAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+    maskLayerAnimation.duration = self.duration;
+    maskLayerAnimation.fromValue = (__bridge id _Nullable)([UIBezierPath bezierPathWithOvalInRect:_maskLayer.frame].CGPath);
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self disposeDisplay];
-        self.moveSliceDistance = 0;
-        if(completion)completion(YES);
-    });
+    CGRect rect = _maskLayer.frame;
+    rect.origin.x = self.targetView.zz_viewTextBounds.size.width - _maskLayer.frame.size.height;
+    maskLayerAnimation.toValue = (__bridge id _Nullable)([UIBezierPath bezierPathWithOvalInRect:rect].CGPath);
+    maskLayerAnimation.removedOnCompletion = NO;
+    maskLayerAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    [_maskLayer addAnimation:maskLayerAnimation forKey:@"path"];
+
 }
 
 - (void)setEnlarge:(CGFloat)enlarge{

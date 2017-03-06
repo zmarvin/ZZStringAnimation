@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ZZArcStringView : UIView
+
 + (instancetype)ArcStringView:(UIView *)targetView;
+@property (nonatomic,strong) UIBezierPath *path;
+
 @property (nonatomic) UIFont *font;
 @property (nonatomic) NSString *string;
 @property (readonly, nonatomic) NSAttributedString *attributedString;
