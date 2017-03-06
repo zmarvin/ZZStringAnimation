@@ -4,14 +4,14 @@
 ## Contents
 
 * Currently contains these animations
-	* [ZZLightAnimation]()
-	* [ZZEnlargeAnimation]()
-	* [ZZDrawAnimation]()
-	* [ZZGradualAnimation]()
+	* **ZZLightAnimation**
+	* **ZZEnlargeAnimation**
+	* **ZZDrawAnimation**
+	* **ZZGradualAnimation**
 
 ## Usage
 
-* [LightAnimation]()
+* **LightAnimation**
 
 	```objc
 	ZZLightAnimation *lightAnimation = [ZZLightAnimation new];
@@ -19,7 +19,7 @@
     lightAnimation.duration = 1;
     [self.label zz_startAnimation:lightAnimation];
     ```
-* [EnlargeAnimation]()
+* **EnlargeAnimation**
 
 	```objc
 	ZZEnlargeAnimation *enlargeAnimation = [ZZEnlargeAnimation new];
@@ -27,14 +27,14 @@
     enlargeAnimation.enlargeMultiple = 3;
     [self.label zz_startAnimation:enlargeAnimation];
     ```
-* [DrawAnimation]()
+* **DrawAnimation**
 
 	```objc
 	ZZDrawAnimation *drawAnimation = [ZZDrawAnimation new];
     drawAnimation.duration = 5;
     [self.label zz_startAnimation:drawAnimation];
     ```
-* [GradualAnimation]()
+* **GradualAnimation**
 
 	```objc
 	ZZGradualAnimation *gradualAnimation = [ZZGradualAnimation new];
