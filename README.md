@@ -61,7 +61,7 @@ All you need to do is drop ZZStringAnimation folder into your project
 
 zmarvin
 
-* [https://github.com/zmarvin](http://blog.csdn.net/theroadofprogrammers)
+* [https://github.com/zmarvin](https://github.com/zmarvin)
 * [http://blog.csdn.net/theroadofprogrammers](http://blog.csdn.net/theroadofprogrammers)
 * [http://www.zmarvin.com/](http://www.zmarvin.com/)
 * [seeforward@zmarvin.com](mailto:seeforward@zmarvin.com)
