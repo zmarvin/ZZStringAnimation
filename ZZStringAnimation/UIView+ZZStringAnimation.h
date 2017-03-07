@@ -18,4 +18,5 @@
 - (CGRect)zz_viewTextFrame;
 - (UIColor *)zz_viewTextColor;
 - (NSTextAlignment)zz_viewTextAlignment;
+
 @end

@@ -4,10 +4,16 @@
 ## Contents
 
 * Currently contains these animations
+
 	* **ZZLightAnimation**
 	* **ZZEnlargeAnimation**
 	* **ZZDrawAnimation**
 	* **ZZGradualAnimation**
+* These animations in development
+
+	* **ZZWaveAnimation**
+	* **ZZPathAnimation**
+	* **ZZArcAnimation**
 
 ## Usage
 

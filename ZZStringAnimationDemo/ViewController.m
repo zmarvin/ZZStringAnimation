@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     UIButton *btn = [UIButton new];
-    btn.frame = CGRectMake(100, 50, 50, 50);
+    btn.frame = CGRectMake(150, 50, 50, 50);
     btn.backgroundColor = [UIColor blueColor];
     [btn setTitle:@"start" forState:UIControlStateNormal];
     [self.view addSubview:btn];
@@ -35,29 +35,27 @@
     
     UILabel *label = [UILabel new];
     label.frame = CGRectMake(50, 100, 280, 100);
-    label.text = @"一缕光light，一缕光light";
-    label.font = [UIFont systemFontOfSize:20];
+    label.text = @"现在字体一缕光light,light,light";
     label.textColor = [UIColor redColor];
     [self.view addSubview:label];
     _label = label;
     
     UILabel *label2 = [UILabel new];
-    label2.frame = CGRectMake(50, 200, 280, 100);
+    label2.frame = CGRectMake(50, 150, 280, 100);
     label2.text = @"现在字体放大了，字体放大";
-    label2.font = [UIFont systemFontOfSize:15];
     label2.textColor = [UIColor redColor];
     [self.view addSubview:label2];
     _label2 = label2;
     
     UILabel *label3 = [UILabel new];
-    label3.frame = CGRectMake(50, 280, 280, 100);
+    label3.frame = CGRectMake(50, 200, 280, 100);
     label3.text = @"现在字体被写出，字体被写出";
     label3.textColor = [UIColor redColor];
     [self.view addSubview:label3];
     _label3 = label3;
     
     UILabel *label4 = [UILabel new];
-    label4.frame = CGRectMake(50, 350, 280, 100);
+    label4.frame = CGRectMake(50, 250, 280, 100);
     label4.text = @"现在字体逐渐出现，逐渐出现";
     label4.textColor = [UIColor redColor];
     [self.view addSubview:label4];

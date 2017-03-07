@@ -20,14 +20,6 @@
 
 @implementation ZZEnlargeAnimation
 @synthesize targetView = _targetView;
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
-}
 
 - (void)zz_startAnimationWithView:(UIView *)targetView{
     
@@ -35,9 +27,9 @@
     
     ZZEnlargeView *enlargeView = [ZZEnlargeView enlargeView:targetView];
     enlargeView.enlarge = _enlargeMultiple;
-    [self.targetView addSubview:enlargeView];
     _enlargeView = enlargeView;
-    
+    [self.targetView addSubview:enlargeView];
+
     [self fireTimerKeepAlive];
 }
 

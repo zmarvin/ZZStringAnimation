@@ -12,12 +12,14 @@
 #import "UILabel+ZZStringAnimation.h"
 #import "UITextField+ZZStringAnimation.h"
 #import "UITextView+ZZStringAnimation.h"
-#import "ZZArcStringView.h"
+#import "ZZEnlargeView.h"
 
 #import "ZZLightAnimation.h"
 #import "ZZEnlargeAnimation.h"
 #import "ZZDrawAnimation.h"
 #import "ZZGradualAnimation.h"
 #import "ZZWaveAnimation.h"
+#import "ZZPathAnimation.h"
+#import "ZZArcAnimation.h"
 
 #endif /* ZZStringAnimation_h */
