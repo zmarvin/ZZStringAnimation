@@ -21,7 +21,7 @@
 
 ### Manual
 
-All you need to do is drop ZZStringAnimation file into your project
+All you need to do is drop ZZStringAnimation folder into your project
 
 ## Example usage
 
