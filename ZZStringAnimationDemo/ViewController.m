@@ -32,6 +32,9 @@
     [btn setTitle:@"start" forState:UIControlStateNormal];
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
+    CGPoint center = btn.center;
+    center.x = self.view.center.x;
+    btn.center = center;
     
     UILabel *label = [UILabel new];
     label.frame = CGRectMake(50, 100, 280, 100);
@@ -39,6 +42,9 @@
     label.textColor = [UIColor redColor];
     [self.view addSubview:label];
     _label = label;
+    center = label.center;
+    center.x = self.view.center.x;
+    label.center = center;
     
     UILabel *label2 = [UILabel new];
     label2.frame = CGRectMake(50, 150, 280, 100);
@@ -46,6 +52,9 @@
     label2.textColor = [UIColor redColor];
     [self.view addSubview:label2];
     _label2 = label2;
+    center = label2.center;
+    center.x = self.view.center.x;
+    label2.center = center;
     
     UILabel *label3 = [UILabel new];
     label3.frame = CGRectMake(50, 200, 280, 100);
@@ -53,6 +62,9 @@
     label3.textColor = [UIColor redColor];
     [self.view addSubview:label3];
     _label3 = label3;
+    center = label3.center;
+    center.x = self.view.center.x;
+    label3.center = center;
     
     UILabel *label4 = [UILabel new];
     label4.frame = CGRectMake(50, 250, 280, 100);
@@ -60,6 +72,9 @@
     label4.textColor = [UIColor redColor];
     [self.view addSubview:label4];
     _label4 = label4;
+    center = label3.center;
+    center.x = self.view.center.x;
+    label3.center = center;
     
 //    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
 //    arcStringView.frame = CGRectMake(50, 400, 300, 200);

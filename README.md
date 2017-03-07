@@ -1,5 +1,7 @@
 ## ZZStringAnimation
 *  String animation for UILabel text.
+	
+	![Examples](_Gifs/Example.gif)
 
 ## Contents
 
@@ -48,8 +50,5 @@
     [self.label zz_startAnimation:gradualAnimation];
     ```
 
-
-## Examples
-![Examples](_Gifs/Example.gif)
 
 

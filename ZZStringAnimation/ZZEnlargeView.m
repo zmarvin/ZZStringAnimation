@@ -77,14 +77,8 @@
 
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
-
-}
-
 - (void)setEnlarge:(CGFloat)enlarge{
     _enlarge = enlarge;
-//    self.transform = CGAffineTransformMakeScale(enlarge, enlarge);
     self.layer.transform = CATransform3DMakeScale(enlarge, enlarge, 1);
 
 }
