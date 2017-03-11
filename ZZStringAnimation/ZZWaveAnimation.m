@@ -7,29 +7,35 @@
 //
 
 #import "ZZWaveAnimation.h"
-
+#import "ZZWaveView.h"
 @interface ZZWaveAnimation ()
 
-@property (nonatomic,strong) CADisplayLink *link;
+@property (nonatomic,strong) ZZWaveView *waveView;
+@property (nonatomic,weak  ) UIView *targetView;
 
 @end
 
 @implementation ZZWaveAnimation
+@synthesize targetView = _targetView;
+
+- (instancetype)initWith
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
 
 - (void)zz_startAnimationWithView:(UIView *)targetView{
+    _targetView = targetView;
     
+    _waveView = [ZZWaveView waveView:_targetView];
     
-}
-
-- (void)startDisplay{
-    if (_link) return;
-    _link = [CADisplayLink displayLinkWithTarget:self selector:@selector(display)];
-    [_link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-}
-
-- (void)disposeDisplay{
-    [_link invalidate];
-    _link = nil;
+    [_waveView zz_startAnimationWithDuration:self.duration];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_waveView zz_stopAnimation];
+        [_waveView removeFromSuperview];
+    });
 }
 
 

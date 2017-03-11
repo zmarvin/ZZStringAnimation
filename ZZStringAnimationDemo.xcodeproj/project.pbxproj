@@ -26,6 +26,7 @@
 		3A7133F11E6D571C004B48DB /* ZZGradualAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */; };
 		3ACB23941E6EC20C00F932E2 /* ZZArcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */; };
 		3ACB23971E6ED96A00F932E2 /* ZZArcAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB23961E6ED96A00F932E2 /* ZZArcAnimation.m */; };
+		3ACB239B1E74618300F932E2 /* ZZWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB239A1E74618300F932E2 /* ZZWaveView.m */; };
 		3AD75E961E6AAF6D00C5C0D7 /* ZZWaveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */; };
 		3AD75E991E6ADF6300C5C0D7 /* ZZAnimationDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */; };
 		3AD75E9C1E6C0D0400C5C0D7 /* ZZPathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */; };
@@ -70,6 +71,8 @@
 		3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcLabel.m; sourceTree = "<group>"; };
 		3ACB23951E6ED96A00F932E2 /* ZZArcAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcAnimation.h; sourceTree = "<group>"; };
 		3ACB23961E6ED96A00F932E2 /* ZZArcAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcAnimation.m; sourceTree = "<group>"; };
+		3ACB23991E74618300F932E2 /* ZZWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZWaveView.h; sourceTree = "<group>"; };
+		3ACB239A1E74618300F932E2 /* ZZWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZWaveView.m; sourceTree = "<group>"; };
 		3AD75E941E6AAF6D00C5C0D7 /* ZZWaveAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZWaveAnimation.h; sourceTree = "<group>"; };
 		3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZWaveAnimation.m; sourceTree = "<group>"; };
 		3AD75E971E6ADF6300C5C0D7 /* ZZAnimationDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAnimationDisposable.h; sourceTree = "<group>"; };
@@ -142,6 +145,10 @@
 				3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */,
 				3ACB23921E6EC20C00F932E2 /* ZZArcLabel.h */,
 				3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */,
+				3ACB23991E74618300F932E2 /* ZZWaveView.h */,
+				3ACB239A1E74618300F932E2 /* ZZWaveView.m */,
+				3AD75E941E6AAF6D00C5C0D7 /* ZZWaveAnimation.h */,
+				3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */,
 				3A6A95C41E62DC4500C2F994 /* ZZAnimationSubject.h */,
 				3A6A95C51E62DC4500C2F994 /* ZZAnimationSubject.m */,
 				3A6A95C61E62DC4500C2F994 /* ZZLightAnimation.h */,
@@ -156,8 +163,6 @@
 				3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */,
 				3AD75E9A1E6C0D0400C5C0D7 /* ZZPathAnimation.h */,
 				3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */,
-				3AD75E941E6AAF6D00C5C0D7 /* ZZWaveAnimation.h */,
-				3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */,
 				3AD75E971E6ADF6300C5C0D7 /* ZZAnimationDisposable.h */,
 				3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */,
 				3A6A95CC1E62FC3F00C2F994 /* UIView+ZZStringAnimation.h */,
@@ -246,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACB239B1E74618300F932E2 /* ZZWaveView.m in Sources */,
 				3A6A95B21E62DC2200C2F994 /* ViewController.m in Sources */,
 				3A6A95CE1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m in Sources */,
 				3A6A95C91E62DC4500C2F994 /* ZZAnimationSubject.m in Sources */,

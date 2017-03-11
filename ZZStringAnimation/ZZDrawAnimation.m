@@ -72,9 +72,9 @@
     NSDictionary *attrs = [NSDictionary dictionaryWithObjectsAndKeys:
                            
                            (__bridge id)font, kCTFontAttributeName,
-                           @1,kCTStrokeWidthAttributeName,
-                           (__bridge id)self.targetView.zz_viewTextColor.CGColor,kCTStrokeColorAttributeName,
-                           
+                           @-1,kCTStrokeWidthAttributeName,
+                           self.targetView.zz_viewTextColor.CGColor,kCTStrokeColorAttributeName,
+                           self.targetView.zz_viewTextColor.CGColor,kCTForegroundColorAttributeName,
                            nil];
     
     NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:string

@@ -8,11 +8,12 @@
 
 #import "UIView+ZZStringAnimation.h"
 #import <objc/objc-runtime.h>
+#import <CoreText/CoreText.h>
+
 
 @implementation UIView (ZZStringAnimation)
 
 - (NSString *)zz_viewText{
-    
     if ([self respondsToSelector:@selector(text)]) {
         return ((NSString *(*)(id, SEL))(void *) objc_msgSend)(self,@selector(text));
     }else{
@@ -22,7 +23,6 @@
 }
 
 - (UIFont *)zz_viewTextFont{
-    
     if ([self respondsToSelector:@selector(font)]) {
         return ((UIFont *(*)(id, SEL))(void *) objc_msgSend)(self,@selector(font));
     }else{
@@ -46,7 +46,7 @@
     if (font == nil) return CGRectZero;
     NSDictionary *attr = @{NSFontAttributeName:font};
     
-    return [viewText boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil];
+    return [viewText boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesFontLeading attributes:attr context:nil];
 }
 
 - (NSTextAlignment)zz_viewTextAlignment{
@@ -91,7 +91,7 @@
     return CGRectMake(stringX, stringY, stringW, stringH);
 }
 
-- (BOOL)isSupportAnimation{
+- (BOOL)isSupportZZAnimation{
     
     NSString *viewText = [self zz_viewText];
     UIFont *viewTextFont = [self zz_viewTextFont];
@@ -101,6 +101,78 @@
         return YES;
     }
     return NO;
+}
+
+- (CGRect)zz_viewTextFrame1{
+    
+    UIGraphicsBeginImageContext(self.bounds.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+
+    NSDictionary *attar = @{
+                            NSFontAttributeName:self.zz_viewTextFont,
+                            NSForegroundColorAttributeName:self.zz_viewTextColor,
+                            };
+    NSAttributedString * atString = [[NSAttributedString alloc] initWithString:self.zz_viewText attributes:attar];
+
+    // layout master
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(
+                                                                           (CFAttributedStringRef)atString);
+    CGMutablePathRef Path = CGPathCreateMutable();
+    
+    //坐标点在左下角
+    CGPathAddRect(Path, NULL ,CGRectMake(0 , 0 ,self.bounds.size.width , self.bounds.size.height));
+    
+    CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, 0), Path, NULL);
+    
+    CFArrayRef Lines = CTFrameGetLines(frame);
+    
+    CFIndex linecount = CFArrayGetCount(Lines);
+    
+    CGPoint origins[linecount];
+    CTFrameGetLineOrigins(frame, CFRangeMake(0, 0), origins);
+    NSInteger lineIndex = 0;
+    
+    CTLineRef firstLine = CFArrayGetValueAtIndex(Lines, 0);
+    
+    CGPoint firstOriginPoint = origins[0];
+    CGRect lineBounds = CTLineGetImageBounds((CTLineRef)firstLine, ctx);
+    
+    CGRect result = CGRectMake(firstOriginPoint.x, firstOriginPoint.y - lineBounds.size.height, lineBounds.size.width, lineBounds.size.height);
+    
+    for (id oneLine in (__bridge NSArray *)Lines)
+    {
+        CGRect lineBounds = CTLineGetImageBounds((CTLineRef)oneLine, ctx);
+        
+        lineBounds.origin.x += origins[lineIndex].x;
+        lineBounds.origin.y += origins[lineIndex].y;
+        
+        lineIndex++;
+        //画长方形
+        
+        //设置颜色，仅填充4条边
+        CGContextSetStrokeColorWithColor(ctx, [[UIColor redColor] CGColor]);
+        //设置线宽为1
+        CGContextSetLineWidth(ctx, 1.0);
+        //设置长方形4个顶点
+        CGPoint poins[] = {
+            CGPointMake(lineBounds.origin.x, lineBounds.origin.y),
+            CGPointMake(lineBounds.origin.x+lineBounds.size.width, lineBounds.origin.y),
+            CGPointMake(lineBounds.origin.x+lineBounds.size.width, lineBounds.origin.y+lineBounds.size.height),
+            CGPointMake(lineBounds.origin.x, lineBounds.origin.y+lineBounds.size.height)
+        };
+        
+        CGContextAddLines(ctx,poins,4);
+        CGContextClosePath(ctx);
+        CGContextStrokePath(ctx);
+        
+    }
+    
+    CTFrameDraw(frame,ctx);
+    CGPathRelease(Path);
+    CFRelease(framesetter);
+    
+    UIGraphicsEndImageContext();
+    return result;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ZZStringAnimation.h"
 #import <CoreText/CoreText.h>
+#import "ZZArcStringView.h"
 
 @interface ViewController ()
 
@@ -16,8 +17,9 @@
 @property (nonatomic,strong) UILabel *label2;
 @property (nonatomic,strong) UILabel *label3;
 @property (nonatomic,strong) UILabel *label4;
+@property (nonatomic,strong) ZZArcLabel *arcLabel;
 
-//@property (nonatomic,strong) ZZArcStringView *arcStringView;
+@property (nonatomic,strong) ZZArcStringView *arcStringView;
 
 @end
 
@@ -77,9 +79,23 @@
     label3.center = center;
     
 //    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
-//    arcStringView.frame = CGRectMake(50, 400, 300, 200);
+//    arcStringView.frame = CGRectMake(50, 380, 280, 150);
 //    arcStringView.radius = 120;
+//    arcStringView.backgroundColor = [UIColor orangeColor];
+////    arcStringView.showsGlyphBounds = YES;
+//    arcStringView.showsLineMetrics = YES;
+//    arcStringView.dimsSubstitutedGlyphs = NO;
 //    [self.view addSubview:arcStringView];
+    
+    ZZArcLabel *arcLabel = [UILabel new];
+    arcLabel.frame = CGRectMake(50, 330, 280, 150);
+    arcLabel.text = @"日暮乡关何处是，烟波江上使人愁。";
+    arcLabel.textColor = [UIColor redColor];
+//    arcLabel.backgroundColor = [UIColor orangeColor];
+//    arcLabel.alpha = 0.3;
+    [self.view addSubview:arcLabel];
+    _arcLabel =arcLabel;
+    
 }
 
 - (void)click {
@@ -102,6 +118,9 @@
     gradualAnimation.duration = 5;
     [_label4 zz_startAnimation:gradualAnimation];
 
+    ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
+    waveAnimation.duration = 5;
+    [_arcLabel zz_startAnimation:waveAnimation];
 }
 
 @end

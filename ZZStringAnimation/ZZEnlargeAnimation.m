@@ -42,7 +42,7 @@
     enlargeFrame.origin.x = -_enlargeView.frame.size.height * 0.5;
     enlargeFrame.size.width = _enlargeView.frame.size.width + 5;
     _enlargeView.frame = enlargeFrame;
-
+    
     [_enlargeView startAnimationWithDuration:self.duration];
     
     [UIView animateWithDuration:self.duration delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{

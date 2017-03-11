@@ -10,7 +10,7 @@
 
 @interface UIView (ZZStringAnimation)
 
-- (BOOL)isSupportAnimation;
+- (BOOL)isSupportZZAnimation;
 
 - (NSString *)zz_viewText;
 - (UIFont *)zz_viewTextFont;

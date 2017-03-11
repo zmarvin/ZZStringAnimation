@@ -2,7 +2,7 @@
 //  ZZGradientAnimation.m
 //  ZZStringAnimationDemo
 //
-//  Created by zz on 2017/3/6.
+//  Created by zmarvin on 2017/3/6.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
@@ -61,7 +61,7 @@
 
     UIFont *font = self.targetView.zz_viewTextFont;
     NSString *str = self.targetView.zz_viewText;
-    
+
     NSMutableAttributedString *string = nil;
     string = [[NSMutableAttributedString alloc] initWithString:str];
     CFStringRef fontName = (__bridge CFStringRef)(font.fontName);
