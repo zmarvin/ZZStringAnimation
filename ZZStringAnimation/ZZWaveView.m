@@ -56,7 +56,7 @@
     self.frame = [self.targetView convertRect:self.targetView.zz_viewTextFrame toView:self.targetView.superview];
 
     UILabel *label = (UILabel *)self.targetView;
-    _lineArray = [label linesForWidth:self.targetView.zz_viewTextBounds.size.width];
+    _lineArray = [label zz_linesForWidth:self.targetView.zz_viewTextBounds.size.width];
     
     self.waveHeight = CGRectGetHeight(self.bounds) * 0.5;
     self.waveWidth  = CGRectGetWidth(self.bounds);
