@@ -8,17 +8,6 @@
 
 #import "ZZAnimationSubject.h"
 
-static NSMutableArray * ZZAnimations() {
-    
-    static NSMutableArray *_ZZAnimations = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _ZZAnimations = [NSMutableArray arrayWithCapacity:1];
-    });
-    
-    return _ZZAnimations;
-}
-
 @interface ZZAnimationSubject ()
 @property (nonatomic,strong) NSTimer *timer;
 @end

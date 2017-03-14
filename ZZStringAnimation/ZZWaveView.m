@@ -67,8 +67,8 @@
     self.maxAmplitude = self.waveHeight;
     
 }
-static CGFloat originHeight[];
 
+static CGFloat originHeight[];
 - (void)createStringLabels
 {
     CGPoint originPosition = self.frame.origin;
@@ -112,7 +112,7 @@ static CGFloat originHeight[];
         }
         
         [self.lineLabelsArray addObject:lineLabels];
-        yOffset += font.pointSize;
+        yOffset += font.lineHeight;
     }
     
     self.labelArray = [@[] mutableCopy];
@@ -159,10 +159,6 @@ static CGFloat originHeight[];
     [self createStringLabels];
     
     [self startDisplay];
-    
-//    CGPoint position = self.waveSinLayer.position;
-//    position.y = position.y - self.bounds.size.height*0.5;
-//    self.waveSinLayer.position = position;
 }
 
 - (void)zz_stopAnimation{

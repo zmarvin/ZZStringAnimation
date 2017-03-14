@@ -1,5 +1,8 @@
 ## ZZStringAnimation
 *  String animation for UILabel text.
+*  It is currently in the development.
+*  You are welcome to fork and submit pull requests!
+
 	
 	![Examples](_Gifs/Example.gif)
 	![Examples](_Gifs/Example1.gif)
@@ -14,7 +17,6 @@
 	* **ZZGradualAnimation**
 	* **ZZWaveAnimation**
 * These animations in development
-
 
 	* **ZZPathAnimation**
 	* **ZZArcAnimation**
@@ -62,7 +64,7 @@ All you need to do is drop ZZStringAnimation folder into your project
 	```objc
 	ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
     waveAnimation.duration = 5;
-    [_label5 zz_startAnimation:waveAnimation];
+    [self.label zz_startAnimation:waveAnimation];
     ```
 
 ## Contact
