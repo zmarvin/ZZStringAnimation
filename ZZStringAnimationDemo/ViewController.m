@@ -10,6 +10,7 @@
 #import "ZZStringAnimation.h"
 #import <CoreText/CoreText.h>
 #import "ZZArcStringView.h"
+#import "ZZWaveView.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,7 @@
 @property (nonatomic,strong) UILabel *label2;
 @property (nonatomic,strong) UILabel *label3;
 @property (nonatomic,strong) UILabel *label4;
-@property (nonatomic,strong) ZZArcLabel *arcLabel;
+@property (nonatomic,strong) UILabel *label5;
 
 @property (nonatomic,strong) ZZArcStringView *arcStringView;
 
@@ -78,23 +79,22 @@
     center.x = self.view.center.x;
     label3.center = center;
     
-//    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
-//    arcStringView.frame = CGRectMake(50, 380, 280, 150);
-//    arcStringView.radius = 120;
-//    arcStringView.backgroundColor = [UIColor orangeColor];
-////    arcStringView.showsGlyphBounds = YES;
-//    arcStringView.showsLineMetrics = YES;
-//    arcStringView.dimsSubstitutedGlyphs = NO;
-//    [self.view addSubview:arcStringView];
+    UILabel *label5 = [UILabel new];
+    label5.frame = CGRectMake(30, 380, 355, 100);
+    label5.text = @"君不见黄河之水天上来，奔流到海不复回。\n君不见高堂明镜悲白发，朝如青丝暮成雪。";
+    label5.numberOfLines = 0;
+    label5.textColor = [UIColor redColor];
+    [self.view addSubview:label5];
+    _label5 =label5;
     
-    ZZArcLabel *arcLabel = [UILabel new];
-    arcLabel.frame = CGRectMake(50, 330, 280, 150);
-    arcLabel.text = @"日暮乡关何处是，烟波江上使人愁。";
-    arcLabel.textColor = [UIColor redColor];
-//    arcLabel.backgroundColor = [UIColor orangeColor];
-//    arcLabel.alpha = 0.3;
-    [self.view addSubview:arcLabel];
-    _arcLabel =arcLabel;
+    //    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
+    //    arcStringView.frame = CGRectMake(50, 380, 280, 150);
+    //    arcStringView.radius = 120;
+    //    arcStringView.backgroundColor = [UIColor orangeColor];
+    //    arcStringView.showsGlyphBounds = YES;
+    //    arcStringView.showsLineMetrics = YES;
+    //    arcStringView.dimsSubstitutedGlyphs = NO;
+    //    [self.view addSubview:arcStringView];
     
 }
 
@@ -120,7 +120,7 @@
 
     ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
     waveAnimation.duration = 5;
-    [_arcLabel zz_startAnimation:waveAnimation];
+    [_label5 zz_startAnimation:waveAnimation];
 }
 
 @end

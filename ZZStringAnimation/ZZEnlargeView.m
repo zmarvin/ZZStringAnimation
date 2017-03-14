@@ -18,7 +18,6 @@
 @property (nonatomic,strong) UIColor *textColor;
 @property (nonatomic,strong) UIColor *backgroundColor;
 
-
 @property (nonatomic,assign) CGFloat duration;
 @property (nonatomic,strong) CAShapeLayer *maskLayer;
 

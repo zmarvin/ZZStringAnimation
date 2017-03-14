@@ -29,11 +29,6 @@
     enlargeView.enlarge = _enlargeMultiple;
     _enlargeView = enlargeView;
     [self.targetView addSubview:enlargeView];
-
-    [self fireTimerKeepAlive];
-}
-
-- (void)onTimer{
     
     if (self.enlargeView.superview == nil) {
         [self.targetView addSubview:_enlargeView];
@@ -56,7 +51,6 @@
             [self stopTimerResignAlive];
         }
     }];
-    
 }
 
 - (void)setEnlargeMultiple:(CGFloat)enlargeMultiple{

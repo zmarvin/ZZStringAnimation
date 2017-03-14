@@ -30,11 +30,15 @@
     _targetView = targetView;
     
     _waveView = [ZZWaveView waveView:_targetView];
+    [targetView.superview addSubview:_waveView];
+    targetView.hidden = YES;
     
     [_waveView zz_startAnimationWithDuration:self.duration];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [_waveView zz_stopAnimation];
         [_waveView removeFromSuperview];
+        _waveView = nil;
+        _targetView.hidden = NO;
     });
 }
 

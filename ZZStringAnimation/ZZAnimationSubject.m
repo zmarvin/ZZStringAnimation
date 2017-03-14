@@ -19,19 +19,6 @@ static NSMutableArray * ZZAnimations() {
     return _ZZAnimations;
 }
 
-static void addToCachePool(ZZAnimationSubject *ani){
-    if ([ZZAnimations() containsObject:ani]) {
-        return;
-    }
-    [ZZAnimations() addObject:ani];
-}
-
-static void removeFromCachePool(ZZAnimationSubject *ani){
-    if ([ZZAnimations() containsObject:ani]) {
-        [ZZAnimations() removeObject:ani];
-    }
-}
-
 @interface ZZAnimationSubject ()
 @property (nonatomic,strong) NSTimer *timer;
 @end
@@ -60,7 +47,6 @@ static void removeFromCachePool(ZZAnimationSubject *ani){
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:_duration+_repeatTimeInterval target:self selector:@selector(onTimer) userInfo:nil repeats:_repeat];
     [_timer fire];
-    addToCachePool(self);
 }
 
 - (void)stopTimerResignAlive{
@@ -68,7 +54,6 @@ static void removeFromCachePool(ZZAnimationSubject *ani){
     if (_timer == nil) return;
     [_timer invalidate];
     _timer = nil;
-    removeFromCachePool(self);
 }
 
 

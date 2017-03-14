@@ -13,6 +13,7 @@
 #import "UITextField+ZZStringAnimation.h"
 #import "UITextView+ZZStringAnimation.h"
 #import "UIView+ZZStringAnimation.h"
+#import "NSString+ZZStringAnimation.h"
 #import "ZZEnlargeView.h"
 #import "ZZArcLabel.h"
 
