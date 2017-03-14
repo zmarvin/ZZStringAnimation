@@ -16,11 +16,11 @@
     [animation zz_startAnimationWithView:self];
 }
 
-- (NSArray*) linesForWidth:(CGFloat)width
+- (NSArray*)zz_linesForWidth:(CGFloat)width
 {
     
-    UIFont   *font = self.font;
-    CGRect    rect = self.frame;
+    UIFont *font = self.font;
+    CGRect rect = self.frame;
     
     NSMutableAttributedString *attStr;
     if (self.attributedText) {
