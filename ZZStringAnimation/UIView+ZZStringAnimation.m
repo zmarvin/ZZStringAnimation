@@ -46,7 +46,7 @@
     if (font == nil) return CGRectZero;
     NSDictionary *attr = @{NSFontAttributeName:font};
     
-    return [viewText boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesFontLeading attributes:attr context:nil];
+    return [viewText boundingRectWithSize:CGSizeMake(self.frame.size.width?:MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesFontLeading attributes:attr context:nil];
 }
 
 - (NSTextAlignment)zz_viewTextAlignment{

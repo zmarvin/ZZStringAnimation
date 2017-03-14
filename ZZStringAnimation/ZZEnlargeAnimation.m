@@ -47,9 +47,6 @@
     } completion:^(BOOL finished) {
         [self.enlargeView.layer removeAllAnimations];
         [self.enlargeView removeFromSuperview];
-        if (!self.repeat) {
-            [self stopTimerResignAlive];
-        }
     }];
 }
 

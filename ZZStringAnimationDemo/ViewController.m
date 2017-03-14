@@ -29,15 +29,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIButton *btn = [UIButton new];
-    btn.frame = CGRectMake(150, 80, 80, 25);
-    btn.backgroundColor = [UIColor orangeColor];
-    [btn setTitle:@"黄鹤楼" forState:UIControlStateNormal];
-    [self.view addSubview:btn];
-    [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-    CGPoint center = btn.center;
-    center.x = self.view.center.x;
-    btn.center = center;
+    UIButton *btn1 = [UIButton new];
+    btn1.frame = CGRectMake(150, 80, 80, 25);
+    btn1.backgroundColor = [UIColor orangeColor];
+    [btn1 setTitle:@"黄鹤楼" forState:UIControlStateNormal];
+    [self.view addSubview:btn1];
+    [btn1 addTarget:self action:@selector(click1) forControlEvents:UIControlEventTouchUpInside];
+
     
     UILabel *label = [UILabel new];
     label.frame = CGRectMake(50, 100, 280, 100);
@@ -45,9 +43,7 @@
     label.textColor = [UIColor redColor];
     [self.view addSubview:label];
     _label = label;
-    center = label.center;
-    center.x = self.view.center.x;
-    label.center = center;
+
     
     UILabel *label2 = [UILabel new];
     label2.frame = CGRectMake(50, 150, 280, 100);
@@ -55,9 +51,7 @@
     label2.textColor = [UIColor redColor];
     [self.view addSubview:label2];
     _label2 = label2;
-    center = label2.center;
-    center.x = self.view.center.x;
-    label2.center = center;
+
     
     UILabel *label3 = [UILabel new];
     label3.frame = CGRectMake(50, 200, 280, 100);
@@ -65,9 +59,7 @@
     label3.textColor = [UIColor redColor];
     [self.view addSubview:label3];
     _label3 = label3;
-    center = label3.center;
-    center.x = self.view.center.x;
-    label3.center = center;
+
     
     UILabel *label4 = [UILabel new];
     label4.frame = CGRectMake(50, 250, 280, 100);
@@ -75,9 +67,14 @@
     label4.textColor = [UIColor redColor];
     [self.view addSubview:label4];
     _label4 = label4;
-    center = label3.center;
-    center.x = self.view.center.x;
-    label3.center = center;
+
+    
+    UIButton *btn2 = [UIButton new];
+    btn2.frame = CGRectMake(150, 355, 80, 25);
+    btn2.backgroundColor = [UIColor orangeColor];
+    [btn2 setTitle:@"将进酒" forState:UIControlStateNormal];
+    [self.view addSubview:btn2];
+    [btn2 addTarget:self action:@selector(click2) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *label5 = [UILabel new];
     label5.frame = CGRectMake(30, 380, 355, 100);
@@ -98,7 +95,7 @@
     
 }
 
-- (void)click {
+- (void)click1 {
     
     ZZLightAnimation *lightAnimation = [ZZLightAnimation new];
     lightAnimation.color = [UIColor whiteColor];
@@ -118,6 +115,10 @@
     gradualAnimation.duration = 5;
     [_label4 zz_startAnimation:gradualAnimation];
 
+}
+
+- (void)click2 {
+    
     ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
     waveAnimation.duration = 5;
     [_label5 zz_startAnimation:waveAnimation];

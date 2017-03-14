@@ -1,9 +1,8 @@
 ## ZZStringAnimation
 *  String animation for UILabel text.
 *  It is currently in the development.
-*  You are welcome to fork and submit pull requests!
+*  Welcome to fork and submit pull requests.
 
-	
 	![Examples](_Gifs/Example.gif)
 	![Examples](_Gifs/Example1.gif)
 

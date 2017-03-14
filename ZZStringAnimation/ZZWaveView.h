@@ -13,4 +13,5 @@
 + (instancetype)waveView:(UIView *)targetView;
 - (void)zz_startAnimationWithDuration:(CGFloat)duration;
 - (void)zz_stopAnimation;
+
 @end

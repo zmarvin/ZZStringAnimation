@@ -63,17 +63,25 @@
     
     CAGradientLayer *gradientLayer = [[CAGradientLayer alloc] init];
     gradientLayer.colors = [NSArray arrayWithObjects:
+                            (id)[UIColor clearColor].CGColor,
+                            (id)[UIColor clearColor].CGColor,
                             (id)[[_color colorWithAlphaComponent:0.2] CGColor],
                             (id)[[_color colorWithAlphaComponent:1] CGColor],
                             (id)[[_color colorWithAlphaComponent:1] CGColor],
                             (id)[[_color colorWithAlphaComponent:0.2] CGColor],
+                            (id)[UIColor clearColor].CGColor,
+                            (id)[UIColor clearColor].CGColor,
                             nil];
     
     gradientLayer.locations = [NSArray arrayWithObjects:
+                               [NSNumber numberWithFloat:0.0],
+                               [NSNumber numberWithFloat:0.0],
                                  [NSNumber numberWithFloat:0.0],
                                [NSNumber numberWithFloat:0.3],
                                [NSNumber numberWithFloat:0.7],
-                                 [NSNumber numberWithFloat:1.0],
+                                 [NSNumber numberWithFloat:0.9],
+                               [NSNumber numberWithFloat:1.0],
+                               [NSNumber numberWithFloat:1.0],
      nil];
     gradientLayer.startPoint = CGPointMake(0, 0.5);
     gradientLayer.endPoint = CGPointMake(1, 0.5);

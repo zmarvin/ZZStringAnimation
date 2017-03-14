@@ -22,8 +22,4 @@
 
 - (void)zz_startAnimationWithView:(UIView *)targetView;
 
-- (void)fireTimerKeepAlive;
-
-- (void)stopTimerResignAlive;
-
 @end

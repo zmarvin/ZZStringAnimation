@@ -36,7 +36,6 @@
                        range:NSMakeRange(0, attStr.length)];
     }
     
-    
     CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attStr);
     
     CGMutablePathRef path = CGPathCreateMutable();
@@ -45,7 +44,7 @@
     CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(0, 0), path, NULL);
     
     NSArray *lines = (__bridge NSArray *)CTFrameGetLines(frame);
-    NSMutableArray *linesArray = [[NSMutableArray alloc]init];
+    NSMutableArray *linesArray = [[NSMutableArray alloc] init];
     
     if (self.attributedText) {
         for (id line in lines)
@@ -62,7 +61,6 @@
             CTLineRef lineRef = (__bridge CTLineRef )line;
             CFRange lineRange = CTLineGetStringRange(lineRef);
             NSRange range = NSMakeRange(lineRange.location, lineRange.length);
-            
             NSString *lineString = [self.text substringWithRange:range];
             [linesArray addObject:lineString];
         }

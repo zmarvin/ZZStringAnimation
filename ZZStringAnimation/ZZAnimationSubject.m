@@ -27,23 +27,4 @@
     NSCAssert(NO, @"This method must be overridden by subclasses");
 }
 
-- (void)onTimer{
-}
-
-- (void)fireTimerKeepAlive{
-    
-    if (_timer) return;
-    
-    _timer = [NSTimer scheduledTimerWithTimeInterval:_duration+_repeatTimeInterval target:self selector:@selector(onTimer) userInfo:nil repeats:_repeat];
-    [_timer fire];
-}
-
-- (void)stopTimerResignAlive{
-    
-    if (_timer == nil) return;
-    [_timer invalidate];
-    _timer = nil;
-}
-
-
 @end

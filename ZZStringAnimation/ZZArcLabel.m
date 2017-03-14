@@ -22,7 +22,6 @@
     return self;
 }
 
-
 - (void)drawRect:(CGRect)rect {
     
     NSDictionary *attar = @{

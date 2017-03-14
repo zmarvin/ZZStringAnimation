@@ -85,7 +85,7 @@ static CGFloat originHeight[];
         NSMutableArray *lineLabels = [@[] mutableCopy];
         
         if (self.targetView.zz_viewTextAlignment == NSTextAlignmentCenter) {
-            CGSize lineSize = [line zz_sizeWithFont:self.targetView.zz_viewTextFont];
+            CGSize lineSize = [line zz_sizeWithFont:font];
             xOffset = originPosition.x + ((self.targetView.zz_viewTextBounds.size.width - lineSize.width)/2) ;
         }else{
             xOffset = originPosition.x;
@@ -93,9 +93,8 @@ static CGFloat originHeight[];
         
         for (int i = 0; i < line.length; i++) {
             
-            NSString*character = [[NSString stringWithFormat:@"%@",line] substringWithRange:NSMakeRange(i, 1)];
+            NSString *character = [[NSString stringWithFormat:@"%@",line] substringWithRange:NSMakeRange(i, 1)];
             CGSize characterSize = [character zz_sizeWithFont:font];
-            
             UILabel *characterLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset,
                                                                                yOffset,
                                                                                characterSize.width,
