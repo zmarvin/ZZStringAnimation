@@ -9,13 +9,22 @@
 #import "UIView+ZZStringAnimation.h"
 #import <objc/objc-runtime.h>
 #import <CoreText/CoreText.h>
-
+#import "NSString+ZZStringAnimation.h"
 
 @implementation UIView (ZZStringAnimation)
 
 - (NSString *)zz_viewText{
     if ([self respondsToSelector:@selector(text)]) {
         return ((NSString *(*)(id, SEL))(void *) objc_msgSend)(self,@selector(text));
+    }else{
+        NSLog(@"not suport this view");
+        return nil;
+    }
+}
+
+- (NSAttributedString *)zz_viewAttributedText{
+    if ([self respondsToSelector:@selector(attributedText)]) {
+        return ((NSAttributedString *(*)(id, SEL))(void *) objc_msgSend)(self,@selector(attributedText));
     }else{
         NSLog(@"not suport this view");
         return nil;
@@ -173,6 +182,134 @@
     
     UIGraphicsEndImageContext();
     return result;
+}
+
+- (NSMutableArray *)zz_linesForWidth:(CGFloat)width
+{
+    UIFont *font = self.zz_viewTextFont;
+    CGRect rect = self.frame;
+    
+    NSMutableAttributedString *attStr;
+    if (self.zz_viewAttributedText) {
+        attStr = [self.zz_viewAttributedText mutableCopy];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+        [attStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [attStr length])];
+    } else {
+        attStr = [[NSMutableAttributedString alloc] initWithString:self.zz_viewText];
+        CTFontRef myFont = CTFontCreateWithName((__bridge CFStringRef)([font fontName]), [font pointSize], NULL);
+        [attStr addAttribute:(NSString *)kCTFontAttributeName
+                       value:(__bridge id)myFont
+                       range:NSMakeRange(0, attStr.length)];
+    }
+    
+    CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef)attStr);
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddRect(path, NULL, CGRectMake(0,0,rect.size.width,100000));
+    
+    CTFrameRef frame = CTFramesetterCreateFrame(frameSetter, CFRangeMake(0, 0), path, NULL);
+    
+    NSArray *lines = (__bridge NSArray *)CTFrameGetLines(frame);
+    NSMutableArray *linesArray = [[NSMutableArray alloc] init];
+    
+    if (self.zz_viewAttributedText) {
+        for (id line in lines)
+        {
+            CTLineRef lineRef = (__bridge CTLineRef )line;
+            CFRange lineRange = CTLineGetStringRange(lineRef);
+            NSRange range = NSMakeRange(lineRange.location, lineRange.length);
+            NSAttributedString *lineString = [self.zz_viewAttributedText attributedSubstringFromRange:range];
+            [linesArray addObject:lineString];
+        }
+    }else{
+        for (id line in lines)
+        {
+            CTLineRef lineRef = (__bridge CTLineRef )line;
+            CFRange lineRange = CTLineGetStringRange(lineRef);
+            NSRange range = NSMakeRange(lineRange.location, lineRange.length);
+            NSString *lineString = [self.zz_viewText substringWithRange:range];
+            [linesArray addObject:lineString];
+        }
+    }
+    
+    return linesArray;
+}
+
+- (NSMutableArray *)zz_stringLabelsWithOrigin:(CGPoint)origin superview:(UIView *)superview
+{
+    UIFont *font = self.zz_viewTextFont;
+    
+    CGFloat xOffset = origin.x;
+    CGFloat yOffset = origin.y;
+    
+    NSMutableArray *lineLabelsArray = [@[] mutableCopy];
+    
+    NSArray *lineArray = [self zz_linesForWidth:self.zz_viewTextBounds.size.width];
+    
+    for (NSString* line in lineArray) {
+        
+        NSMutableArray *lineLabels = [@[] mutableCopy];
+        
+        if (self.zz_viewTextAlignment == NSTextAlignmentCenter) {
+            CGSize lineSize = [line zz_sizeWithFont:font];
+            xOffset = origin.x + ((self.zz_viewTextBounds.size.width - lineSize.width)/2) ;
+        }else{
+            xOffset = origin.x;
+        }
+        
+        for (int i = 0; i < line.length; i++) {
+            
+            NSString *character = [[NSString stringWithFormat:@"%@",line] substringWithRange:NSMakeRange(i, 1)];
+            CGSize characterSize = [character zz_sizeWithFont:font];
+            ZZCharacterLabel *characterLabel = [[ZZCharacterLabel alloc] initWithFrame:CGRectMake(xOffset,
+                                                                                yOffset,
+                                                                                characterSize.width,
+                                                                                characterSize.height)];
+            
+            [characterLabel setFont:font];
+            [characterLabel setTextColor:self.zz_viewTextColor];
+            [characterLabel setBackgroundColor:[UIColor clearColor]];
+            [characterLabel setText:character];
+            [lineLabels addObject:characterLabel];
+            [superview addSubview:characterLabel];
+            
+            xOffset += characterSize.width;
+        }
+        
+        [lineLabelsArray addObject:lineLabels];
+        yOffset += font.lineHeight;
+    }
+    
+    int lineNumber = 0;
+
+    for (NSArray *views in lineLabelsArray) {
+        int number = 0;
+
+        for (ZZCharacterLabel *characterLabel in views) {
+            
+            characterLabel.originFrame = characterLabel.frame;
+            characterLabel.lineNumber = number;
+            
+            if (number < views.count) {
+                characterLabel.next = views[number];
+            }
+            
+            number++;
+
+        }
+#warning 未完成
+        if (lineNumber == lineLabelsArray.count - 1) {
+            ZZCharacterLabel *label = views.lastObject;
+            label.next = lineLabelsArray[lineNumber][0];
+        }
+        
+        lineNumber++;
+        
+    }
+    
+    return lineLabelsArray;
+    
 }
 
 @end

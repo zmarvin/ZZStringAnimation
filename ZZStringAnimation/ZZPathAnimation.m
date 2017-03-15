@@ -7,12 +7,75 @@
 //
 
 #import "ZZPathAnimation.h"
+#import "UIView+ZZStringAnimation.h"
+#import "UILabel+ZZStringAnimation.h"
+
+@interface ZZPathAnimation ()<CAAnimationDelegate>
+
+@property (nonatomic,weak  ) UIView *targetView;
+
+@property (nonatomic, strong) NSMutableArray *labelArray;
+@property (nonatomic, strong) NSMutableArray *lineLabelsArray;
+@property (nonatomic, strong) CAKeyframeAnimation *animation;
+@end
 
 @implementation ZZPathAnimation
+@synthesize targetView = _targetView;
 
 - (void)zz_startAnimationWithView:(UIView *)targetView{
     
+    self.targetView = targetView;
+    self.targetView.hidden = YES;
+    
+    CGRect frame = [self.targetView convertRect:self.targetView.zz_viewTextFrame toView:self.targetView.superview];
+    
+    _lineLabelsArray = [self.targetView zz_stringLabelsWithOrigin:frame.origin superview:targetView.superview];
+    
+    self.labelArray = [@[] mutableCopy];
+
+    for (NSArray *labels in self.lineLabelsArray) {
+        [self.labelArray addObjectsFromArray:labels];
+    }
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    animation.path = self.path.CGPath;
+    animation.duration = self.duration;
+    animation.autoreverses = NO;
+    animation.delegate = self;
+    _animation = animation;
+    
+    CGFloat unitTime = self.duration/self.labelArray.count;
+    
+    int index = 0;
+    num = 0;
+    for (ZZCharacterLabel *label in self.labelArray) {
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(unitTime *index * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [label.layer addAnimation:_animation forKey:@"pathAnimation"];
+        });
+        
+        index++;
+    }
     
 }
+static int num = 0;
+- (void)animationDidStart:(CAAnimation *)anim{
+
+}
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    num++;
+    if (self.labelArray.count>0) {
+        UIView *view = self.labelArray[0];
+        [view removeFromSuperview];
+        [self.labelArray removeObjectAtIndex:0];
+    }
+    if (num == self.labelArray.count -1) {
+        [self.labelArray removeAllObjects];
+        self.targetView.hidden = NO;
+        num = 0;
+    }
+    
+}
+
 
 @end

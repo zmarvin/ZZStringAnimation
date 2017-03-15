@@ -13,6 +13,4 @@
 
 - (void)zz_startAnimation:(ZZAnimationSubject *)animation;
 
-- (NSArray*)zz_linesForWidth:(CGFloat)width;
-
 @end

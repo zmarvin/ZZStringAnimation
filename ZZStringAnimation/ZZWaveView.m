@@ -24,11 +24,10 @@
 @property (nonatomic, strong) CADisplayLink *link;
 @property (nonatomic, weak  ) UIView *targetView;
 
-@property (nonatomic, strong) NSArray *lineArray;
 @property (nonatomic, strong) NSMutableArray *labelArray;
 @property (nonatomic, strong) NSMutableArray *lineLabelsArray;
 
-@property (nonatomic,assign) CGFloat duration;
+@property (nonatomic, assign) CGFloat duration;
 @property (nonatomic, assign) UIViewAnimationOptions options;
 
 @end
@@ -54,9 +53,14 @@
 - (void)setUpSubViews{
     
     self.frame = [self.targetView convertRect:self.targetView.zz_viewTextFrame toView:self.targetView.superview];
-
-    UILabel *label = (UILabel *)self.targetView;
-    _lineArray = [label zz_linesForWidth:self.targetView.zz_viewTextBounds.size.width];
+    
+    _lineLabelsArray = [self.targetView zz_stringLabelsWithOrigin:self.frame.origin superview:self.targetView.superview];
+    
+    self.labelArray = [@[] mutableCopy];
+    
+    for (NSArray *labels in self.lineLabelsArray) {
+        [self.labelArray addObjectsFromArray:labels];
+    }
     
     self.waveHeight = CGRectGetHeight(self.bounds) * 0.5;
     self.waveWidth  = CGRectGetWidth(self.bounds);
@@ -68,103 +72,18 @@
     
 }
 
-static CGFloat originHeight[];
-- (void)createStringLabels
-{
-    CGPoint originPosition = self.frame.origin;
-    
-    UIFont *font = self.targetView.zz_viewTextFont;
-
-    CGFloat xOffset = originPosition.x;
-    CGFloat yOffset = originPosition.y;
-    
-    self.lineLabelsArray = [@[] mutableCopy];
-    
-    for (NSString* line in self.lineArray) {
-        
-        NSMutableArray *lineLabels = [@[] mutableCopy];
-        
-        if (self.targetView.zz_viewTextAlignment == NSTextAlignmentCenter) {
-            CGSize lineSize = [line zz_sizeWithFont:font];
-            xOffset = originPosition.x + ((self.targetView.zz_viewTextBounds.size.width - lineSize.width)/2) ;
-        }else{
-            xOffset = originPosition.x;
-        }
-        
-        for (int i = 0; i < line.length; i++) {
-            
-            NSString *character = [[NSString stringWithFormat:@"%@",line] substringWithRange:NSMakeRange(i, 1)];
-            CGSize characterSize = [character zz_sizeWithFont:font];
-            UILabel *characterLabel = [[UILabel alloc] initWithFrame:CGRectMake(xOffset,
-                                                                               yOffset,
-                                                                               characterSize.width,
-                                                                               characterSize.height)];
-            
-            [characterLabel setFont:font];
-            [characterLabel setTextColor:self.targetView.zz_viewTextColor];
-            [characterLabel setBackgroundColor:[UIColor clearColor]];
-            [characterLabel setText:character];
-            [lineLabels addObject:characterLabel];
-            [self.targetView.superview addSubview:characterLabel];
-            
-            xOffset += characterSize.width;
-        }
-        
-        [self.lineLabelsArray addObject:lineLabels];
-        yOffset += font.lineHeight;
-    }
-    
-    self.labelArray = [@[] mutableCopy];
-
-    for (NSArray *labels in self.lineLabelsArray) {
-        [self.labelArray addObjectsFromArray:labels];
-        NSUInteger index = [self.lineLabelsArray indexOfObject:labels];
-        UILabel *label = (UILabel *)labels[0];
-        originHeight[index] = label.frame.origin.y;
-    }
-    
-}
-
-- (UIBezierPath *)createWavePath
-{
-    UIGraphicsBeginImageContextWithOptions(self.frame.size, NO, 0.0);
-    
-    UIBezierPath *wavePath = [UIBezierPath bezierPath];
-    CGFloat endX = 0;
-    for (CGFloat x = 0; x < self.waveWidth + 1; x += 1) {
-        endX = x;
-        
-        CGFloat y = self.maxAmplitude * sinf(360.0 / _waveWidth * (x  * M_PI / 180) * self.frequency + self.phase * M_PI/ 180) + self.maxAmplitude;
-        
-        if (x == 0) {
-            [wavePath moveToPoint:CGPointMake(x, y)];
-        } else {
-            [wavePath addLineToPoint:CGPointMake(x, y)];
-        }
-        
-    }
-    
-    CGFloat endY = CGRectGetHeight(self.bounds) + 10;
-    [wavePath addLineToPoint:CGPointMake(endX, endY)];
-    [wavePath addLineToPoint:CGPointMake(0, endY)];
-    
-    UIGraphicsEndImageContext();
-    
-    return wavePath;
-}
-
 - (void)zz_startAnimationWithDuration:(CGFloat)duration{
     
-    [self createStringLabels];
-    
-    [self startDisplay];
+    if (_link) return;
+    _link = [CADisplayLink displayLinkWithTarget:self selector:@selector(display)];
+    [_link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 - (void)zz_stopAnimation{
     
     [_link invalidate];
     _link = nil;
-    self.lineArray = nil;
+
     while (self.labelArray.count>0) {
         
         UILabel *label = self.labelArray[0];
@@ -173,27 +92,25 @@ static CGFloat originHeight[];
     }
 }
 
-- (void)startDisplay{
-    if (_link) return;
-    _link = [CADisplayLink displayLinkWithTarget:self selector:@selector(display)];
-    [_link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
-}
-
 - (void)display{
     
     self.phase += self.phaseShift;
     int index = 0;
     CGFloat LabelOriginHeight = 0;
     for (NSArray *array in self.lineLabelsArray) {
-        
-        LabelOriginHeight = originHeight[index];
-        
+        ZZCharacterLabel *label = array[index];
+        LabelOriginHeight = label.originFrame.origin.y;
+
         for (UILabel*character in array) {
+            
             CGFloat y = self.maxAmplitude * sinf(360.0 / _waveWidth * (character.center.x  * M_PI / 180) * self.frequency + self.phase * M_PI/ 180) + self.maxAmplitude + LabelOriginHeight;
             character.center = CGPointMake(character.center.x,y);
+            
         }
         
         index++;
+
+        
     }
     
     

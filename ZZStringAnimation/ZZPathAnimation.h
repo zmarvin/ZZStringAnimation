@@ -10,5 +10,6 @@
 
 @interface ZZPathAnimation : ZZAnimationSubject
 
+@property (nonatomic,strong) UIBezierPath *path;
 
 @end

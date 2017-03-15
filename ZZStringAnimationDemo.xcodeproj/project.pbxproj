@@ -25,6 +25,7 @@
 		3A6A95D51E6307F600C2F994 /* UITextView+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95D41E6307F600C2F994 /* UITextView+ZZStringAnimation.m */; };
 		3A7133F11E6D571C004B48DB /* ZZGradualAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */; };
 		3A926F661E779484004BC814 /* NSString+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A926F651E779484004BC814 /* NSString+ZZStringAnimation.m */; };
+		3A9FF71D1E792CEF00F13FD4 /* ZZCharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9FF71C1E792CEF00F13FD4 /* ZZCharacterLabel.m */; };
 		3ACB23941E6EC20C00F932E2 /* ZZArcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */; };
 		3ACB23971E6ED96A00F932E2 /* ZZArcAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB23961E6ED96A00F932E2 /* ZZArcAnimation.m */; };
 		3ACB239B1E74618300F932E2 /* ZZWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB239A1E74618300F932E2 /* ZZWaveView.m */; };
@@ -70,6 +71,8 @@
 		3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGradualAnimation.m; sourceTree = "<group>"; };
 		3A926F641E779484004BC814 /* NSString+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZZStringAnimation.h"; sourceTree = "<group>"; };
 		3A926F651E779484004BC814 /* NSString+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZZStringAnimation.m"; sourceTree = "<group>"; };
+		3A9FF71B1E792CEF00F13FD4 /* ZZCharacterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZCharacterLabel.h; sourceTree = "<group>"; };
+		3A9FF71C1E792CEF00F13FD4 /* ZZCharacterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCharacterLabel.m; sourceTree = "<group>"; };
 		3ACB23921E6EC20C00F932E2 /* ZZArcLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcLabel.h; sourceTree = "<group>"; };
 		3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcLabel.m; sourceTree = "<group>"; };
 		3ACB23951E6ED96A00F932E2 /* ZZArcAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcAnimation.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				3A6A95CB1E62DC9B00C2F994 /* ZZStringAnimation.h */,
+				3A9FF71B1E792CEF00F13FD4 /* ZZCharacterLabel.h */,
+				3A9FF71C1E792CEF00F13FD4 /* ZZCharacterLabel.m */,
 				3A47668D1E683B4B00EEE4D9 /* ZZEnlargeView.h */,
 				3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */,
 				3AD75E9D1E6C282600C5C0D7 /* ZZArcStringView.h */,
@@ -262,6 +267,7 @@
 				3A926F661E779484004BC814 /* NSString+ZZStringAnimation.m in Sources */,
 				3A6A95C91E62DC4500C2F994 /* ZZAnimationSubject.m in Sources */,
 				3ACB23941E6EC20C00F932E2 /* ZZArcLabel.m in Sources */,
+				3A9FF71D1E792CEF00F13FD4 /* ZZCharacterLabel.m in Sources */,
 				3A6A95AF1E62DC2200C2F994 /* AppDelegate.m in Sources */,
 				3A7133F11E6D571C004B48DB /* ZZGradualAnimation.m in Sources */,
 				3A6A95C81E62DC4500C2F994 /* UILabel+ZZStringAnimation.m in Sources */,

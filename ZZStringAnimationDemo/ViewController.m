@@ -19,6 +19,7 @@
 @property (nonatomic,strong) UILabel *label3;
 @property (nonatomic,strong) UILabel *label4;
 @property (nonatomic,strong) UILabel *label5;
+@property (nonatomic,strong) UILabel *label6;
 
 @property (nonatomic,strong) ZZArcStringView *arcStringView;
 
@@ -84,6 +85,14 @@
     [self.view addSubview:label5];
     _label5 =label5;
     
+    UILabel *label6 = [UILabel new];
+    label6.frame = CGRectMake(30, 450, 355, 100);
+    label6.text = @"君不见黄河之水天上。";
+    label6.numberOfLines = 0;
+    label6.textColor = [UIColor redColor];
+    [self.view addSubview:label6];
+    _label6 =label6;
+    
     //    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
     //    arcStringView.frame = CGRectMake(50, 380, 280, 150);
     //    arcStringView.radius = 120;
@@ -107,14 +116,18 @@
     enlargeAnimation.enlargeMultiple = 3;
     [_label2 zz_startAnimation:enlargeAnimation];
     
-    ZZDrawAnimation *pathAnimation = [ZZDrawAnimation new];
-    pathAnimation.duration = 5;
-    [_label3 zz_startAnimation:pathAnimation];
+    ZZDrawAnimation *drawAnimation = [ZZDrawAnimation new];
+    drawAnimation.duration = 5;
+    [_label3 zz_startAnimation:drawAnimation];
     
     ZZGradualAnimation *gradualAnimation = [ZZGradualAnimation new];
     gradualAnimation.duration = 5;
     [_label4 zz_startAnimation:gradualAnimation];
 
+    ZZPathAnimation *pathAnimation = [ZZPathAnimation new];
+    pathAnimation.duration = 5;
+    pathAnimation.path = [UIBezierPath bezierPathWithRect:CGRectMake(10, 100, 300, 400)];
+    [_label6 zz_startAnimation:pathAnimation];
 }
 
 - (void)click2 {

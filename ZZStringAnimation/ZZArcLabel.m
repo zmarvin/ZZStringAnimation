@@ -24,11 +24,11 @@
 
 - (void)drawRect:(CGRect)rect {
     
-    NSDictionary *attar = @{
-                            NSFontAttributeName:self.font,
-                            NSForegroundColorAttributeName:self.textColor,
-                            NSBackgroundColorAttributeName:self.backgroundColor
-                            };
+//    NSDictionary *attar = @{
+//                            NSFontAttributeName:self.font,
+//                            NSForegroundColorAttributeName:self.textColor,
+//                            NSBackgroundColorAttributeName:self.backgroundColor
+//                            };
 //    CGFloat y = 0.5*(self.frame.size.height - self.zz_viewTextBounds.size.height);
 //    [self.text drawInRect:CGRectMake(0, y, rect.size.width, rect.size.height) withAttributes:attar];
     
