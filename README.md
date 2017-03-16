@@ -3,7 +3,9 @@
 *  It is currently in the development.
 *  Welcome to fork and submit pull requests.
 
-	![Examples](_Gifs/Example.gif)
+	![Examples](_Gifs/Example1.gif)
+	![Examples](_Gifs/Example2.gif)
+	![Examples](_Gifs/Example3.gif)
 
 ## Contents
 
