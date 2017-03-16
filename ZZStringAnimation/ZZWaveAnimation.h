@@ -10,4 +10,6 @@
 
 @interface ZZWaveAnimation : ZZAnimationSubject
 
+@property (nonatomic, assign) CGFloat waveHeight;
+
 @end

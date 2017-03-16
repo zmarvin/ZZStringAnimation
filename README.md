@@ -4,7 +4,6 @@
 *  Welcome to fork and submit pull requests.
 
 	![Examples](_Gifs/Example.gif)
-	![Examples](_Gifs/Example2.gif)
 
 ## Contents
 

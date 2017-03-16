@@ -68,39 +68,23 @@
     label4.textColor = [UIColor redColor];
     [self.view addSubview:label4];
     _label4 = label4;
-
     
-    UIButton *btn2 = [UIButton new];
-    btn2.frame = CGRectMake(150, 355, 80, 25);
-    btn2.backgroundColor = [UIColor orangeColor];
-    [btn2 setTitle:@"将进酒" forState:UIControlStateNormal];
-    [self.view addSubview:btn2];
-    [btn2 addTarget:self action:@selector(click2) forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *label5 = [UILabel new];
-    label5.frame = CGRectMake(30, 380, 355, 100);
-    label5.text = @"君不见黄河之水天上来，奔流到海不复回。\n君不见高堂明镜悲白发，朝如青丝暮成雪。";
+    label5.frame = CGRectMake(30, 320, 355, 100);
+    label5.text = @"君不见黄河之水天上来，奔流到海不复回。\n君不见高堂明镜悲白发，朝如青丝暮成雪。\n人生得意须尽欢，莫使金樽空对月。\n天生我材必有用，千金散尽还复来。";
     label5.numberOfLines = 0;
     label5.textColor = [UIColor redColor];
     [self.view addSubview:label5];
     _label5 =label5;
     
     UILabel *label6 = [UILabel new];
-    label6.frame = CGRectMake(30, 450, 355, 100);
-    label6.text = @"君不见黄河之水天上。";
+    label6.frame = CGRectMake(30, 400, 355, 100);
+    label6.text = @"String animation, currently only supports UILabel. 字符串动画，目前只支持UILabel。";
     label6.numberOfLines = 0;
     label6.textColor = [UIColor redColor];
     [self.view addSubview:label6];
     _label6 =label6;
-    
-    //    ZZArcStringView *arcStringView = [ZZArcStringView ArcStringView:label3];
-    //    arcStringView.frame = CGRectMake(50, 380, 280, 150);
-    //    arcStringView.radius = 120;
-    //    arcStringView.backgroundColor = [UIColor orangeColor];
-    //    arcStringView.showsGlyphBounds = YES;
-    //    arcStringView.showsLineMetrics = YES;
-    //    arcStringView.dimsSubstitutedGlyphs = NO;
-    //    [self.view addSubview:arcStringView];
     
 }
 
@@ -123,18 +107,16 @@
     ZZGradualAnimation *gradualAnimation = [ZZGradualAnimation new];
     gradualAnimation.duration = 5;
     [_label4 zz_startAnimation:gradualAnimation];
-
-    ZZPathAnimation *pathAnimation = [ZZPathAnimation new];
-    pathAnimation.duration = 5;
-    pathAnimation.path = [UIBezierPath bezierPathWithRect:CGRectMake(10, 100, 300, 400)];
-    [_label6 zz_startAnimation:pathAnimation];
-}
-
-- (void)click2 {
     
     ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
     waveAnimation.duration = 5;
+    waveAnimation.waveHeight = 20;
     [_label5 zz_startAnimation:waveAnimation];
+
+    ZZPathAnimation *pathAnimation = [ZZPathAnimation new];
+    pathAnimation.duration = 5;
+    pathAnimation.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(25, 100, 300, 400)];
+    [_label6 zz_startAnimation:pathAnimation];
 }
 
 @end

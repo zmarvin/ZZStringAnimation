@@ -10,6 +10,9 @@
 
 @interface ZZWaveView : UIView
 
+@property (nonatomic, assign) CGFloat waveWidth;
+@property (nonatomic, assign) CGFloat waveHeight;
+
 + (instancetype)waveView:(UIView *)targetView;
 - (void)zz_startAnimationWithDuration:(CGFloat)duration;
 - (void)zz_stopAnimation;

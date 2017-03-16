@@ -40,8 +40,9 @@
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     animation.path = self.path.CGPath;
     animation.duration = self.duration;
-    animation.autoreverses = NO;
+    animation.autoreverses = YES;
     animation.delegate = self;
+    animation.removedOnCompletion = YES;
     _animation = animation;
     
     CGFloat unitTime = self.duration/self.labelArray.count;
@@ -50,26 +51,29 @@
     num = 0;
     for (ZZCharacterLabel *label in self.labelArray) {
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(unitTime *index * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [label.layer addAnimation:_animation forKey:@"pathAnimation"];
-        });
+        [self performSelector:@selector(gradualShow:) withObject:label afterDelay:unitTime *index];
         
         index++;
     }
     
 }
+
+- (void)gradualShow:(ZZCharacterLabel *)label{
+    [label.layer addAnimation:_animation forKey:@"pathAnimation"];
+}
+
 static int num = 0;
 - (void)animationDidStart:(CAAnimation *)anim{
 
 }
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     num++;
-    if (self.labelArray.count>0) {
-        UIView *view = self.labelArray[0];
-        [view removeFromSuperview];
-        [self.labelArray removeObjectAtIndex:0];
-    }
     if (num == self.labelArray.count -1) {
+        
+        for (ZZCharacterLabel *label in self.labelArray) {
+            [label removeFromSuperview];
+        }
+        
         [self.labelArray removeAllObjects];
         self.targetView.hidden = NO;
         num = 0;

@@ -14,10 +14,7 @@
 @interface ZZWaveView ()
 
 @property (nonatomic, assign) CGFloat frequency;
-@property (nonatomic, assign) CGFloat waveWidth;
-@property (nonatomic, assign) CGFloat waveHeight;
 @property (nonatomic, assign) CGFloat waveMid;
-@property (nonatomic, assign) CGFloat maxAmplitude;
 @property (nonatomic, assign) CGFloat phaseShift;
 @property (nonatomic, assign) CGFloat phase;
 
@@ -68,7 +65,6 @@
     self.frequency = .5;
     self.phaseShift = 8;
     self.waveMid = self.waveWidth / 2.0f;
-    self.maxAmplitude = self.waveHeight;
     
 }
 
@@ -98,12 +94,15 @@
     int index = 0;
     CGFloat LabelOriginHeight = 0;
     for (NSArray *array in self.lineLabelsArray) {
-        ZZCharacterLabel *label = array[index];
+        ZZCharacterLabel *label = array[0];
         LabelOriginHeight = label.originFrame.origin.y;
 
         for (UILabel*character in array) {
+            CGFloat y = self.waveHeight * sinf(360.0 / _waveWidth * (character.center.x  * M_PI / 180) * self.frequency + self.phase * M_PI/ 180) + self.waveHeight + LabelOriginHeight;
             
-            CGFloat y = self.maxAmplitude * sinf(360.0 / _waveWidth * (character.center.x  * M_PI / 180) * self.frequency + self.phase * M_PI/ 180) + self.maxAmplitude + LabelOriginHeight;
+            if (isnan(y)) {
+                y = 0;
+            }
             character.center = CGPointMake(character.center.x,y);
             
         }
