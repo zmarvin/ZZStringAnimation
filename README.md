@@ -14,9 +14,8 @@
 	* **ZZDrawAnimation**
 	* **ZZGradualAnimation**
 	* **ZZWaveAnimation**
-* These animations in development
-
 	* **ZZPathAnimation**
+* These animations in development
 	* **ZZArcAnimation**
 
 ## Installation
@@ -26,15 +25,7 @@
 All you need to do is drop ZZStringAnimation folder into your project
 
 ## Example usage
-
-* **LightAnimation**
-
-	```objc
-	ZZLightAnimation *lightAnimation = [ZZLightAnimation new];
-    lightAnimation.color = [UIColor whiteColor];
-    lightAnimation.duration = 1;
-    [self.label zz_startAnimation:lightAnimation];
-    ```
+    
 * **EnlargeAnimation**
 
 	```objc
