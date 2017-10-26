@@ -5,7 +5,7 @@
 
 	![Examples](_Gifs/Example1.gif)
 	![Examples](_Gifs/Example2.gif)
-	![Examples](_Gifs/Example3.gif)
+	##![Examples](_Gifs/Example3.gif)
 
 ## Contents
 
