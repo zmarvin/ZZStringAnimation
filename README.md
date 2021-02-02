@@ -16,7 +16,8 @@
 ## Example usage
 
 * **ZZDrawAnimation**
-![Examples](_Gifs/draw.gif)
+
+	![Examples](_Gifs/draw.gif) 
 
 	```objc
 	ZZDrawAnimation *drawAnimation = [ZZDrawAnimation new];
@@ -24,7 +25,8 @@
     [self.label zz_startAnimation:drawAnimation];
     ```
 * **ZZGradualAnimation**
-![Examples](_Gifs/gradual.gif)
+
+	![Examples](_Gifs/gradual.gif)
 
 	```objc
 	ZZGradualAnimation *gradualAnimation = [ZZGradualAnimation new];
@@ -32,8 +34,8 @@
     [self.label zz_startAnimation:gradualAnimation];
     ```
 * **ZZWaveAnimation**
-![Examples](_Gifs/wave.gif)
 
+	![Examples](_Gifs/wave.gif)
 
 	```objc
 	ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
@@ -41,7 +43,8 @@
     [self.label zz_startAnimation:waveAnimation];
     ```
 * **ZZPathAnimation**
-![Examples](_Gifs/path.gif)
+
+	![Examples](_Gifs/path.gif)
 
 	```objc
 	ZZPathAnimation *pathAnimation = [ZZPathAnimation new];
