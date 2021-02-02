@@ -104,15 +104,9 @@
                 y = 0;
             }
             character.center = CGPointMake(character.center.x,y);
-            
         }
-        
         index++;
-
-        
     }
-    
-    
 }
 
 @end

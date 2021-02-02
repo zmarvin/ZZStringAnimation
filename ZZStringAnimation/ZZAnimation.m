@@ -1,18 +1,18 @@
 //
-//  ZZStringSubject.m
+//  ZZAnimation.m
 //  ZZStringAnimation
 //
 //  Created by zmarvin on 2017/2/26.
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
-@interface ZZAnimationSubject ()
+@interface ZZAnimation ()
 @property (nonatomic,strong) NSTimer *timer;
 @end
 
-@implementation ZZAnimationSubject
+@implementation ZZAnimation
 
 - (instancetype)init{
     if (self = [super init]) {

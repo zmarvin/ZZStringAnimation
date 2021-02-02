@@ -6,8 +6,8 @@
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
-@interface ZZArcAnimation : ZZAnimationSubject
+@interface ZZArcAnimation : ZZAnimation
 
 @end

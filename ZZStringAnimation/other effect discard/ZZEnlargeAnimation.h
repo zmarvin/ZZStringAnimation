@@ -6,9 +6,9 @@
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
-@interface ZZEnlargeAnimation : ZZAnimationSubject
+@interface ZZEnlargeAnimation : ZZAnimation
 
 @property (nonatomic,assign) CGFloat enlargeMultiple;
 @property (nonatomic,assign) CGFloat lineWidth;

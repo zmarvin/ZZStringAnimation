@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0451EC5025C8E76500BF5E0E /* ZZArcAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0451EC4F25C8E76500BF5E0E /* ZZArcAnimation.m */; };
+		0451EC5525C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0451EC5325C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.m */; };
 		3A0B740A1E658E9B00678DDA /* ZZEnlargeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B74091E658E9B00678DDA /* ZZEnlargeAnimation.m */; };
-		3A0B740D1E65959500678DDA /* UIColor+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */; };
 		3A47668F1E683B4B00EEE4D9 /* ZZEnlargeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */; };
 		3A4766931E693E6D00EEE4D9 /* ZZDrawAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4766921E693E6D00EEE4D9 /* ZZDrawAnimation.m */; };
 		3A6A95AC1E62DC2200C2F994 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95AB1E62DC2200C2F994 /* main.m */; };
@@ -18,28 +19,26 @@
 		3A6A95B71E62DC2200C2F994 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A95B61E62DC2200C2F994 /* Assets.xcassets */; };
 		3A6A95BA1E62DC2200C2F994 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A95B81E62DC2200C2F994 /* LaunchScreen.storyboard */; };
 		3A6A95C81E62DC4500C2F994 /* UILabel+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95C31E62DC4500C2F994 /* UILabel+ZZStringAnimation.m */; };
-		3A6A95C91E62DC4500C2F994 /* ZZAnimationSubject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95C51E62DC4500C2F994 /* ZZAnimationSubject.m */; };
+		3A6A95C91E62DC4500C2F994 /* ZZAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95C51E62DC4500C2F994 /* ZZAnimation.m */; };
 		3A6A95CA1E62DC4500C2F994 /* ZZLightAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95C71E62DC4500C2F994 /* ZZLightAnimation.m */; };
 		3A6A95CE1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95CD1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m */; };
-		3A6A95D21E6307E700C2F994 /* UITextField+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95D11E6307E700C2F994 /* UITextField+ZZStringAnimation.m */; };
-		3A6A95D51E6307F600C2F994 /* UITextView+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A95D41E6307F600C2F994 /* UITextView+ZZStringAnimation.m */; };
 		3A7133F11E6D571C004B48DB /* ZZGradualAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */; };
 		3A926F661E779484004BC814 /* NSString+ZZStringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A926F651E779484004BC814 /* NSString+ZZStringAnimation.m */; };
 		3A9FF71D1E792CEF00F13FD4 /* ZZCharacterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9FF71C1E792CEF00F13FD4 /* ZZCharacterLabel.m */; };
 		3ACB23941E6EC20C00F932E2 /* ZZArcLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */; };
-		3ACB23971E6ED96A00F932E2 /* ZZArcAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB23961E6ED96A00F932E2 /* ZZArcAnimation.m */; };
 		3ACB239B1E74618300F932E2 /* ZZWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACB239A1E74618300F932E2 /* ZZWaveView.m */; };
 		3AD75E961E6AAF6D00C5C0D7 /* ZZWaveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */; };
-		3AD75E991E6ADF6300C5C0D7 /* ZZAnimationDisposable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */; };
 		3AD75E9C1E6C0D0400C5C0D7 /* ZZPathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */; };
 		3AD75E9F1E6C282600C5C0D7 /* ZZArcStringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0451EC4E25C8E76500BF5E0E /* ZZArcAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcAnimation.h; sourceTree = "<group>"; };
+		0451EC4F25C8E76500BF5E0E /* ZZArcAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcAnimation.m; sourceTree = "<group>"; };
+		0451EC5325C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZZStringAnimation.m"; sourceTree = "<group>"; };
+		0451EC5425C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZZStringAnimation.h"; sourceTree = "<group>"; };
 		3A0B74081E658E9B00678DDA /* ZZEnlargeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZEnlargeAnimation.h; sourceTree = "<group>"; };
 		3A0B74091E658E9B00678DDA /* ZZEnlargeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZEnlargeAnimation.m; sourceTree = "<group>"; };
-		3A0B740B1E65959500678DDA /* UIColor+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZZStringAnimation.h"; sourceTree = "<group>"; };
-		3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZZStringAnimation.m"; sourceTree = "<group>"; };
 		3A47668D1E683B4B00EEE4D9 /* ZZEnlargeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZEnlargeView.h; sourceTree = "<group>"; };
 		3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZEnlargeView.m; sourceTree = "<group>"; };
 		3A4766911E693E6D00EEE4D9 /* ZZDrawAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZDrawAnimation.h; sourceTree = "<group>"; };
@@ -56,17 +55,13 @@
 		3A6A95BB1E62DC2200C2F994 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A6A95C21E62DC4500C2F994 /* UILabel+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+ZZStringAnimation.h"; sourceTree = "<group>"; };
 		3A6A95C31E62DC4500C2F994 /* UILabel+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZZStringAnimation.m"; sourceTree = "<group>"; };
-		3A6A95C41E62DC4500C2F994 /* ZZAnimationSubject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAnimationSubject.h; sourceTree = "<group>"; };
-		3A6A95C51E62DC4500C2F994 /* ZZAnimationSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAnimationSubject.m; sourceTree = "<group>"; };
+		3A6A95C41E62DC4500C2F994 /* ZZAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAnimation.h; sourceTree = "<group>"; };
+		3A6A95C51E62DC4500C2F994 /* ZZAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAnimation.m; sourceTree = "<group>"; };
 		3A6A95C61E62DC4500C2F994 /* ZZLightAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZLightAnimation.h; sourceTree = "<group>"; };
 		3A6A95C71E62DC4500C2F994 /* ZZLightAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZLightAnimation.m; sourceTree = "<group>"; };
 		3A6A95CB1E62DC9B00C2F994 /* ZZStringAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZStringAnimation.h; sourceTree = "<group>"; };
 		3A6A95CC1E62FC3F00C2F994 /* UIView+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZZStringAnimation.h"; sourceTree = "<group>"; };
 		3A6A95CD1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZZStringAnimation.m"; sourceTree = "<group>"; };
-		3A6A95D01E6307E700C2F994 /* UITextField+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+ZZStringAnimation.h"; sourceTree = "<group>"; };
-		3A6A95D11E6307E700C2F994 /* UITextField+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+ZZStringAnimation.m"; sourceTree = "<group>"; };
-		3A6A95D31E6307F600C2F994 /* UITextView+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+ZZStringAnimation.h"; sourceTree = "<group>"; };
-		3A6A95D41E6307F600C2F994 /* UITextView+ZZStringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ZZStringAnimation.m"; sourceTree = "<group>"; };
 		3A7133EF1E6D571C004B48DB /* ZZGradualAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGradualAnimation.h; sourceTree = "<group>"; };
 		3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGradualAnimation.m; sourceTree = "<group>"; };
 		3A926F641E779484004BC814 /* NSString+ZZStringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZZStringAnimation.h"; sourceTree = "<group>"; };
@@ -75,14 +70,10 @@
 		3A9FF71C1E792CEF00F13FD4 /* ZZCharacterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZCharacterLabel.m; sourceTree = "<group>"; };
 		3ACB23921E6EC20C00F932E2 /* ZZArcLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcLabel.h; sourceTree = "<group>"; };
 		3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcLabel.m; sourceTree = "<group>"; };
-		3ACB23951E6ED96A00F932E2 /* ZZArcAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcAnimation.h; sourceTree = "<group>"; };
-		3ACB23961E6ED96A00F932E2 /* ZZArcAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZArcAnimation.m; sourceTree = "<group>"; };
 		3ACB23991E74618300F932E2 /* ZZWaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZWaveView.h; sourceTree = "<group>"; };
 		3ACB239A1E74618300F932E2 /* ZZWaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZWaveView.m; sourceTree = "<group>"; };
 		3AD75E941E6AAF6D00C5C0D7 /* ZZWaveAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZWaveAnimation.h; sourceTree = "<group>"; };
 		3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZWaveAnimation.m; sourceTree = "<group>"; };
-		3AD75E971E6ADF6300C5C0D7 /* ZZAnimationDisposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZAnimationDisposable.h; sourceTree = "<group>"; };
-		3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZAnimationDisposable.m; sourceTree = "<group>"; };
 		3AD75E9A1E6C0D0400C5C0D7 /* ZZPathAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPathAnimation.h; sourceTree = "<group>"; };
 		3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPathAnimation.m; sourceTree = "<group>"; };
 		3AD75E9D1E6C282600C5C0D7 /* ZZArcStringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZArcStringView.h; sourceTree = "<group>"; };
@@ -100,6 +91,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0451EC4725C8E39A00BF5E0E /* other effect discard */ = {
+			isa = PBXGroup;
+			children = (
+				0451EC5425C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.h */,
+				0451EC5325C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.m */,
+				0451EC4E25C8E76500BF5E0E /* ZZArcAnimation.h */,
+				0451EC4F25C8E76500BF5E0E /* ZZArcAnimation.m */,
+				3A47668D1E683B4B00EEE4D9 /* ZZEnlargeView.h */,
+				3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */,
+				3AD75E9D1E6C282600C5C0D7 /* ZZArcStringView.h */,
+				3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */,
+				3ACB23921E6EC20C00F932E2 /* ZZArcLabel.h */,
+				3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */,
+				3A6A95C61E62DC4500C2F994 /* ZZLightAnimation.h */,
+				3A6A95C71E62DC4500C2F994 /* ZZLightAnimation.m */,
+				3A0B74081E658E9B00678DDA /* ZZEnlargeAnimation.h */,
+				3A0B74091E658E9B00678DDA /* ZZEnlargeAnimation.m */,
+			);
+			path = "other effect discard";
+			sourceTree = "<group>";
+		};
 		3A6A959E1E62DC2200C2F994 = {
 			isa = PBXGroup;
 			children = (
@@ -144,47 +156,28 @@
 		3A6A95C11E62DC4500C2F994 /* ZZStringAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				0451EC4725C8E39A00BF5E0E /* other effect discard */,
 				3A6A95CB1E62DC9B00C2F994 /* ZZStringAnimation.h */,
 				3A9FF71B1E792CEF00F13FD4 /* ZZCharacterLabel.h */,
 				3A9FF71C1E792CEF00F13FD4 /* ZZCharacterLabel.m */,
-				3A47668D1E683B4B00EEE4D9 /* ZZEnlargeView.h */,
-				3A47668E1E683B4B00EEE4D9 /* ZZEnlargeView.m */,
-				3AD75E9D1E6C282600C5C0D7 /* ZZArcStringView.h */,
-				3AD75E9E1E6C282600C5C0D7 /* ZZArcStringView.m */,
-				3ACB23921E6EC20C00F932E2 /* ZZArcLabel.h */,
-				3ACB23931E6EC20C00F932E2 /* ZZArcLabel.m */,
 				3ACB23991E74618300F932E2 /* ZZWaveView.h */,
 				3ACB239A1E74618300F932E2 /* ZZWaveView.m */,
-				3A6A95C41E62DC4500C2F994 /* ZZAnimationSubject.h */,
-				3A6A95C51E62DC4500C2F994 /* ZZAnimationSubject.m */,
-				3A6A95C61E62DC4500C2F994 /* ZZLightAnimation.h */,
-				3A6A95C71E62DC4500C2F994 /* ZZLightAnimation.m */,
-				3ACB23951E6ED96A00F932E2 /* ZZArcAnimation.h */,
-				3ACB23961E6ED96A00F932E2 /* ZZArcAnimation.m */,
+				3A6A95C41E62DC4500C2F994 /* ZZAnimation.h */,
+				3A6A95C51E62DC4500C2F994 /* ZZAnimation.m */,
 				3AD75E941E6AAF6D00C5C0D7 /* ZZWaveAnimation.h */,
 				3AD75E951E6AAF6D00C5C0D7 /* ZZWaveAnimation.m */,
-				3A0B74081E658E9B00678DDA /* ZZEnlargeAnimation.h */,
-				3A0B74091E658E9B00678DDA /* ZZEnlargeAnimation.m */,
 				3A4766911E693E6D00EEE4D9 /* ZZDrawAnimation.h */,
 				3A4766921E693E6D00EEE4D9 /* ZZDrawAnimation.m */,
 				3A7133EF1E6D571C004B48DB /* ZZGradualAnimation.h */,
 				3A7133F01E6D571C004B48DB /* ZZGradualAnimation.m */,
 				3AD75E9A1E6C0D0400C5C0D7 /* ZZPathAnimation.h */,
 				3AD75E9B1E6C0D0400C5C0D7 /* ZZPathAnimation.m */,
-				3AD75E971E6ADF6300C5C0D7 /* ZZAnimationDisposable.h */,
-				3AD75E981E6ADF6300C5C0D7 /* ZZAnimationDisposable.m */,
 				3A926F641E779484004BC814 /* NSString+ZZStringAnimation.h */,
 				3A926F651E779484004BC814 /* NSString+ZZStringAnimation.m */,
 				3A6A95CC1E62FC3F00C2F994 /* UIView+ZZStringAnimation.h */,
 				3A6A95CD1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m */,
 				3A6A95C21E62DC4500C2F994 /* UILabel+ZZStringAnimation.h */,
 				3A6A95C31E62DC4500C2F994 /* UILabel+ZZStringAnimation.m */,
-				3A6A95D01E6307E700C2F994 /* UITextField+ZZStringAnimation.h */,
-				3A6A95D11E6307E700C2F994 /* UITextField+ZZStringAnimation.m */,
-				3A6A95D31E6307F600C2F994 /* UITextView+ZZStringAnimation.h */,
-				3A6A95D41E6307F600C2F994 /* UITextView+ZZStringAnimation.m */,
-				3A0B740B1E65959500678DDA /* UIColor+ZZStringAnimation.h */,
-				3A0B740C1E65959500678DDA /* UIColor+ZZStringAnimation.m */,
 			);
 			path = ZZStringAnimation;
 			sourceTree = "<group>";
@@ -230,6 +223,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -265,24 +259,21 @@
 				3A6A95B21E62DC2200C2F994 /* ViewController.m in Sources */,
 				3A6A95CE1E62FC3F00C2F994 /* UIView+ZZStringAnimation.m in Sources */,
 				3A926F661E779484004BC814 /* NSString+ZZStringAnimation.m in Sources */,
-				3A6A95C91E62DC4500C2F994 /* ZZAnimationSubject.m in Sources */,
+				3A6A95C91E62DC4500C2F994 /* ZZAnimation.m in Sources */,
+				0451EC5525C8E7AB00BF5E0E /* UIColor+ZZStringAnimation.m in Sources */,
 				3ACB23941E6EC20C00F932E2 /* ZZArcLabel.m in Sources */,
 				3A9FF71D1E792CEF00F13FD4 /* ZZCharacterLabel.m in Sources */,
 				3A6A95AF1E62DC2200C2F994 /* AppDelegate.m in Sources */,
 				3A7133F11E6D571C004B48DB /* ZZGradualAnimation.m in Sources */,
+				0451EC5025C8E76500BF5E0E /* ZZArcAnimation.m in Sources */,
 				3A6A95C81E62DC4500C2F994 /* UILabel+ZZStringAnimation.m in Sources */,
-				3A0B740D1E65959500678DDA /* UIColor+ZZStringAnimation.m in Sources */,
 				3A4766931E693E6D00EEE4D9 /* ZZDrawAnimation.m in Sources */,
-				3ACB23971E6ED96A00F932E2 /* ZZArcAnimation.m in Sources */,
 				3A6A95AC1E62DC2200C2F994 /* main.m in Sources */,
 				3A0B740A1E658E9B00678DDA /* ZZEnlargeAnimation.m in Sources */,
 				3AD75E9F1E6C282600C5C0D7 /* ZZArcStringView.m in Sources */,
-				3AD75E991E6ADF6300C5C0D7 /* ZZAnimationDisposable.m in Sources */,
-				3A6A95D51E6307F600C2F994 /* UITextView+ZZStringAnimation.m in Sources */,
 				3AD75E961E6AAF6D00C5C0D7 /* ZZWaveAnimation.m in Sources */,
 				3A6A95CA1E62DC4500C2F994 /* ZZLightAnimation.m in Sources */,
 				3AD75E9C1E6C0D0400C5C0D7 /* ZZPathAnimation.m in Sources */,
-				3A6A95D21E6307E700C2F994 /* UITextField+ZZStringAnimation.m in Sources */,
 				3A47668F1E683B4B00EEE4D9 /* ZZEnlargeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

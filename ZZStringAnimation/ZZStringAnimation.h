@@ -10,17 +10,16 @@
 #define ZZStringAnimation_h
 
 #import "UILabel+ZZStringAnimation.h"
-#import "UITextField+ZZStringAnimation.h"
-#import "UITextView+ZZStringAnimation.h"
 #import "UIView+ZZStringAnimation.h"
 #import "NSString+ZZStringAnimation.h"
 
-#import "ZZLightAnimation.h"
-#import "ZZEnlargeAnimation.h"
-#import "ZZDrawAnimation.h"
-#import "ZZGradualAnimation.h"
 #import "ZZWaveAnimation.h"
 #import "ZZPathAnimation.h"
-#import "ZZArcAnimation.h"
+#import "ZZDrawAnimation.h"
+#import "ZZGradualAnimation.h"
+
+// discard
+//#import "ZZLightAnimation.h"
+//#import "ZZEnlargeAnimation.h"
 
 #endif /* ZZStringAnimation_h */

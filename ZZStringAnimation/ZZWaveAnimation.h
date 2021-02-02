@@ -6,9 +6,9 @@
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
-@interface ZZWaveAnimation : ZZAnimationSubject
+@interface ZZWaveAnimation : ZZAnimation
 
 @property (nonatomic, assign) CGFloat waveHeight;
 

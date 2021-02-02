@@ -10,7 +10,7 @@
 
 @implementation UILabel (ZZStringAnimation)
 
-- (void)zz_startAnimation:(ZZAnimationSubject *)animation{
+- (void)zz_startAnimation:(ZZAnimation *)animation{
     
     [animation zz_startAnimationWithView:self];
 }

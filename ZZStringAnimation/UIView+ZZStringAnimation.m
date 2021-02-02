@@ -7,7 +7,7 @@
 //
 
 #import "UIView+ZZStringAnimation.h"
-#import <objc/objc-runtime.h>
+#import <objc/message.h>
 #import <CoreText/CoreText.h>
 #import "NSString+ZZStringAnimation.h"
 

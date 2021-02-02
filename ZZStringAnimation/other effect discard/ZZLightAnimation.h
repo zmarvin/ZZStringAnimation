@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
-@interface ZZLightAnimation : ZZAnimationSubject
+@interface ZZLightAnimation : ZZAnimation
 
 @property (nonatomic,assign) CGFloat angle;
 

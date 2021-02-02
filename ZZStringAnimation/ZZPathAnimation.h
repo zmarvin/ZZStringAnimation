@@ -6,9 +6,9 @@
 //  Copyright © 2017年 zmarvin. All rights reserved.
 //
 
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
-@interface ZZPathAnimation : ZZAnimationSubject
+@interface ZZPathAnimation : ZZAnimation
 
 @property (nonatomic,strong) UIBezierPath *path;
 

@@ -1,34 +1,22 @@
 ## ZZStringAnimation
 *  String animation for UILabel text.
-*  It is currently in the development.
-*  Welcome to fork and submit pull requests.
+
 
 
 ## Contents
 
 * Currently contains these animations
 
-	* **ZZLightAnimation**
-	* **ZZEnlargeAnimation**
 	* **ZZDrawAnimation**
 	* **ZZGradualAnimation**
 	* **ZZWaveAnimation**
 	* **ZZPathAnimation**
-* These animations in development
-	* **ZZArcAnimation**
 
 
 ## Example usage
-    
-* **EnlargeAnimation**
 
-	```objc
-	ZZEnlargeAnimation *enlargeAnimation = [ZZEnlargeAnimation new];
-    enlargeAnimation.duration = 5;
-    enlargeAnimation.enlargeMultiple = 3;
-    [self.label zz_startAnimation:enlargeAnimation];
-    ```
 * **DrawAnimation**
+![Examples](_Gifs/draw.gif)
 
 	```objc
 	ZZDrawAnimation *drawAnimation = [ZZDrawAnimation new];
@@ -36,6 +24,7 @@
     [self.label zz_startAnimation:drawAnimation];
     ```
 * **GradualAnimation**
+![Examples](_Gifs/gradual.gif)
 
 	```objc
 	ZZGradualAnimation *gradualAnimation = [ZZGradualAnimation new];
@@ -43,11 +32,21 @@
     [self.label zz_startAnimation:gradualAnimation];
     ```
 * **ZZWaveAnimation**
+![Examples](_Gifs/wave.gif)
+
 
 	```objc
 	ZZWaveAnimation *waveAnimation = [ZZWaveAnimation new];
     waveAnimation.duration = 5;
     [self.label zz_startAnimation:waveAnimation];
     ```
+* **ZZPathAnimation**
+![Examples](_Gifs/path.gif)
 
+	```objc
+	ZZPathAnimation *pathAnimation = [ZZPathAnimation new];
+    pathAnimation.duration = 5;
+    pathAnimation.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(25, 400, 300, 150)];
+    [self.label zz_startAnimation:pathAnimation];
+    ```
 

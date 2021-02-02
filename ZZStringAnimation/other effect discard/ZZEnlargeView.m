@@ -7,7 +7,7 @@
 //
 
 #import "ZZEnlargeView.h"
-#import "UIColor+ZZStringAnimation.h"
+//#import "UIColor+ZZStringAnimation.h"
 #import "UIView+ZZStringAnimation.h"
 
 @interface ZZEnlargeView ()

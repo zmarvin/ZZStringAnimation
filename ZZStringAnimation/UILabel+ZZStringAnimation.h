@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZZAnimationSubject.h"
+#import "ZZAnimation.h"
 
 @interface UILabel (ZZStringAnimation)
 
-- (void)zz_startAnimation:(ZZAnimationSubject *)animation;
+- (void)zz_startAnimation:(ZZAnimation *)animation;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ZZStringSubject.h
+//  ZZAnimation.h
 //  ZZStringAnimation
 //
 //  Created by zmarvin on 2017/2/26.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZZAnimationSubject : NSObject
+@interface ZZAnimation : NSObject
 
 @property (nonatomic,weak  ,readonly) UIView *targetView;
 
