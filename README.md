@@ -15,7 +15,7 @@
 
 ## Example usage
 
-* **DrawAnimation**
+* **ZZDrawAnimation**
 ![Examples](_Gifs/draw.gif)
 
 	```objc
@@ -23,7 +23,7 @@
     drawAnimation.duration = 5;
     [self.label zz_startAnimation:drawAnimation];
     ```
-* **GradualAnimation**
+* **ZZGradualAnimation**
 ![Examples](_Gifs/gradual.gif)
 
 	```objc
